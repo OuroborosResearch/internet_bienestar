@@ -1,0 +1,68 @@
+{% load static %}
+<!-- FAQ-Section start -->
+<section class="row_am faq_section" id="faqs">
+  <style>
+    .faqs_all_txt {
+      width: 100%;
+      margin: 8% auto 0;
+      text-align: center;
+    }
+    .faqs_links {
+      color: grey;
+    }
+    .faq_container a:hover{
+      color:#6a49f2!important;
+    }
+    .faqs_contact_card_container {
+      margin: 10%;
+    }
+  </style>
+    <!-- container start -->
+    <div class="container faq_container">
+      <div class="section_title" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="300">
+        <!-- h2 -->
+        <h2><span>FAQs</span> - Preguntas frecuentes</h2>
+        <!-- p -->
+        <p>Si no encuentras la pregunta que necesitas, contáctanos vía 
+          <a class="faqs_links" href="https://api.whatsapp.com/send?text=Oláfff, me gustaría saber más sobre sus servicios!&amp;phone=525561856708">Whatsapp</a>
+           o <a class="faqs_links" href="mailto:contacto@jrmovil.com?subject=Preguntas Frecuentes"">email</a>, con gusto te responderemos todas tus dudas.</p>
+      </div>
+      <!-- faq data -->
+      <div class="faq_panel">
+        <div class="accordion" id="accordionExample">
+
+          {% for qst in Faqs %}
+
+          <div class="card" data-aos="fade-up" data-aos-duration="1500">
+            <div class="card-header" id="fp-{{qst.pk}}">
+              <h2 class="mb-0">
+                <button type="button" class="btn btn-link collapsed" data-toggle="collapse"
+                  data-target="#f-{{qst.pk}}"><i class="icon_faq icofont-plus"></i></i>{{qst.pregunta | safe }}</button>
+              </h2>
+            </div>
+            <div id="f-{{qst.pk}}" class="collapse" aria-labelledby="headingFour" data-parent="#fp-{{qst.pk}}">
+              <div class="card-body">
+                {{qst.respuesta | safe}}
+                </div>
+            </div>
+          </div>
+
+          {% endfor %}
+          
+        </div>
+      </div>
+      {% if 'faqs' not in request.path %}
+      <div class="faqs_all_txt">
+        <a href="{% url 'faqs' %}">Ver todas las Preguntas Frecuentes</a>
+      </div>
+      {% else %}
+      <div class="faqs_contact_card_container">
+        {% include "JRwebApp/landing/utils/contact_card.html" %}
+      </div>
+      {% endif %}
+    </div>
+    <!-- container end -->
+  </section>
+
+  
+  <!-- FAQ-Section end -->

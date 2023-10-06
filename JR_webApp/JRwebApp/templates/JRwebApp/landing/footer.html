@@ -1,0 +1,151 @@
+{% load static %}
+
+{% if not "pags" in request.path and not "aviso_privacidad" in request.path and not "faqs" in request.path and not "about" in request.path %}
+
+    <style>
+      .footer_txt_contact {
+        color: gainsboro;
+      }
+    </style>
+    <!-- News-Letter-Section-Start -->
+    <section class="newsletter_section">
+        <!-- container start -->
+        <div class="container">
+            <div class="newsletter_box">
+                <div class="section_title" data-aos="fade-in" data-aos-duration="1500" data-aos-delay="100">
+                      <!-- h2 -->
+                    <h2>Recibe las mejores ofertas</h2>
+                    <!-- p -->
+                    <p>¡No te pierdas nuestras promociones!</p>
+                </div>
+                <form action="#" method="post" action="" data-aos="fade-in" data-aos-duration="1500" data-aos-delay="100">
+                  {% csrf_token %}
+                    <div class="form-group">
+                        <input type="email" name="sub_email" class="form-control" placeholder="Escribe tu Email">
+                    </div>
+                    <div class="form-group">
+                        <button class="btn">Registrar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- container end -->
+      </section>
+      <!-- News-Letter-Section-end -->
+    {% endif %}
+
+<!-- Footer-Section start -->
+<footer>
+    <div class="top_footer" id="contact">
+      <!-- animation line -->
+      <div class="anim_line dark_bg">
+        <span><img src="{% static 'JRwebApp/images/anim_line.png' %}" alt="anim_line"></span>
+        <span><img src="{% static 'JRwebApp/images/anim_line.png' %}" alt="anim_line"></span>
+        <span><img src="{% static 'JRwebApp/images/anim_line.png' %}" alt="anim_line"></span>
+        <span><img src="{% static 'JRwebApp/images/anim_line.png' %}" alt="anim_line"></span>
+        <span><img src="{% static 'JRwebApp/images/anim_line.png' %}" alt="anim_line"></span>
+        <span><img src="{% static 'JRwebApp/images/anim_line.png' %}" alt="anim_line"></span>
+        <span><img src="{% static 'JRwebApp/images/anim_line.png' %}" alt="anim_line"></span>
+        <span><img src="{% static 'JRwebApp/images/anim_line.png' %}" alt="anim_line"></span>
+        <span><img src="{% static 'JRwebApp/images/anim_line.png' %}" alt="anim_line"></span>
+      </div>
+          <!-- container start -->
+        <div class="container">
+          <!-- row start -->
+          <div class="row">
+                <!-- footer link 1 -->
+              <div class="col-lg-4 col-md-6 col-12">
+                  <div class="abt_side">
+                    <div class="logo"> <img src="{% static 'JRwebApp/images/logo/jr_blanco.png' %}" alt="image" ></div>
+                    <ul>
+                      <li><a href="#">contacto@jrmovil.com</a></li>
+                      <li class="footer_txt_contact"><i>Atención las 24 horas del día en los 365 dias del año, en el siguiente telefono.</i> <br></li>
+                      <li  class="footer_txt_contact"><span> Whatsapp </span> <a href="#">55 90 63 39 89</a></li>
+                      <li  class="footer_txt_contact"><span>Desde JRmóvil </span> <a href="#">55 90 63 39 89</a></li>
+                      <li  class="footer_txt_contact"><span>Desde tu JRmóvil </span> <a href="#">*576</a></li>
+                    </ul>
+                    <ul class="social_media">
+                      <li><a href="mailto:contacto@jrmovil.com?subject=Intro"  target="_blank" ><i class="icofont-send-mail"></i></a></li>
+                        <li><a href="https://www.facebook.com/people/JRm%C3%B3vil/100063792353384/"><i class="icofont-facebook"></i></a></li>
+                        <li><a href="https://www.instagram.com/jrmovil.mx/" ><i class="icofont-instagram"></i></a></li>
+                        <li><a href="http://m.me/100063792353384" target="_blank" ><i class="icofont-facebook-messenger"></i></a></li>
+                    </ul>
+                  </div>
+              </div>
+
+              <!-- footer link 2 -->
+              <div class="col-lg-3 col-md-6 col-12">
+                  <div class="links">
+                    <h3>Mapa del Sitio</h3>
+                      <ul>
+                        <li><a href="">Iniciar Sesión</a></li>
+                        <li><a href="https://jrmovil.pythonanywhere.com/recargas">Recargas</a></li>
+                        <li><a href="https://jrmovil.pythonanywhere.com/consultas">Consultas</a></li>
+                        <li><a href="https://jrmovil.pythonanywhere.com/generar_factura">Facturación</a></li>
+                        <!--li><a href="https://jrmovil.pythonanywhere.com/comprar_sim">Comprar SIM</a></li-->
+                        <li><a href="https://jrmovil.pythonanywhere.com/nuevodistribuidor">Quiero Ser Distribuidor</a></li>
+                        <li><a href="https://jrmovil.pythonanywhere.com/contact">Contáctanos</a></li>
+                      </ul>
+                  </div>
+              </div>
+
+              <!-- footer link 3 -->
+              <div class="col-lg-3 col-md-6 col-12">
+                <div class="links">
+                  <h3>Acerca</h3>
+                    <ul>
+                      <li><a href="#">Nosotros</a></li>
+                      <li><a href="{% url 'faqs' %}">FAQs</a></li>
+                      <li><a href="{% url 'aviso_privacidad' %}">Avisos de Privacidad</a></li>
+                      <li><a href="{% url 'pags' 'terminos_condiciones' %}">Términos y Condiciones</a></li>
+                    </ul>
+                </div>
+              </div>
+
+              <!-- footer link 4 -->
+              <div class="col-lg-2 col-md-6 col-12">
+                <div class="try_out">
+                    <h3>Descarga Nuestras Apps</h3>
+                    <ul class="app_btn">
+                      <!--li>
+                        <a href="#">
+                          <img src="{% static 'JRwebApp/images/appstore_blue.png' %}" alt="image" >
+                        </a>
+                      </li-->
+                      <li>
+                        <a href="https://play.google.com/store/apps/details?id=com.jrapp&hl=es_MX&gl=US">
+                          <img src="{% static 'JRwebApp/images/googleplay_blue.png' %}" alt="image" >
+                        </a>
+                      </li>
+                    </ul>
+                </div>
+              </div>
+          </div>
+          <!-- row end -->
+      </div>
+      <!-- container end -->
+    </div>
+<!-- last footer -->
+<div class="bottom_footer">
+    <!-- container start -->
+    <div class="container">
+      <!-- row start -->
+      <div class="row">
+        <div class="col-md-6">
+            <p>R & R NEGOCIOS ALTERNOS © Copyrights 2023. All rights reserved.</p>
+        </div>
+        <div class="col-md-6">
+            <p class="developer_text">Desarrollo por <a href="" target="blank">OroborosResearch</a></p>
+        </div>
+    </div>
+    <!-- row end -->
+    </div>
+    <!-- container end -->
+</div>
+
+<!-- go top button --
+
+<div class="go_top">
+    <span><img src="{% static 'JRwebApp/images/go_top.png' %}" alt="image" ></span>
+</div> -->
+</footer>
