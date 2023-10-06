@@ -1,0 +1,52 @@
+{% extends 'JRwebApp/HBB/base.html' %}
+{% load static %}
+
+
+
+{% block content %}
+
+<style>
+  .icon-work {
+      width:15%;
+  }
+</style>
+
+    <div onload="startLoad" class="full_bg">
+
+      <div class="container">
+         <section class="signup_section">
+
+            <div class="top_part">
+                <a class="navbar-brand" href="#">
+                <img src="{% static 'JRwebApp/images/logo/jr_blanco.png' %}" alt="image">
+                </a>
+            </div>
+  
+          <!-- Comment Form Section -->
+          <div class="signup_form">
+            <div class="section_title">
+              <img class="icon-work" src="{% static 'JRwebApp/images/wifi/4w.png' %}" alt="image" >
+              <h2>Contamos con servicio en tu área. <span>¡Prepárate para vivir la mejor experiencia de  
+                Internet de Casa!</span></h2>
+                
+              <p><br></p>
+              <div id="distribuidoresProspectos-btn-container" class="form-group">
+                <a  class="btn puprple_btn" href="https://www.jrmovil.com/hbb" >¡Contratar!</a>
+            </div>
+              <div id="distribuidoresProspectos-btn-container" class="form-group">
+                  <a  class="btn puprple_btn" href="https://www.jrmovil.com/hbb" >Regresar al inicio</a>
+              </div>
+            </div>
+           
+                    
+              
+            
+          </div>
+         </section>
+      </div>
+      
+    </div>
+
+    
+
+{% endblock content %}

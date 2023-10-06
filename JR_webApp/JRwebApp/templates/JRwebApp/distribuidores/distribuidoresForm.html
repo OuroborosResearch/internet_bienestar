@@ -1,0 +1,65 @@
+{% extends 'JRwebApp/landing/base.html' %}
+{% load static %}
+
+
+
+{% block content %}
+
+    <div onload="startLoad" class="full_bg">
+
+      <div class="container">
+         <section class="signup_section">
+
+            <div class="top_part">
+                <a href="{% url 'intro' %}" class="back_btn"><i class="icofont-arrow-left"></i> Back</a>
+                <a class="navbar-brand" href="#">
+                <!--img src="{% static 'JRwebApp/images/logo/jr_blanco.png' %}" alt="image"-->
+                </a>
+            </div>
+  
+          <!-- Comment Form Section -->
+          <div class="signup_form">
+            <div class="section_title">
+              <h2> ¿Quieres ser un Distribuidor <span>JR</span>? </h2>
+              <p>Para empezar deberás llenar el siguiente formulario con tus datos y en breve un asesor JR se pondrá en 
+                contacto contigo para continuar con el proceso de contratación. <br></p>
+            </div>
+
+           
+            <form id="nuevoDistribuidorSubmit" action="#" method="post" >
+              {% csrf_token %}
+              <div class="form-group">
+                <input id="idSubscriberI" name="name" type="text" class="form-control" placeholder="Nombre Completo*" required>
+              </div>
+
+              <div class="form-group">
+                <input id="idSubscriber2" name="cellphone" type="number" class="form-control" placeholder="Teléfono*" required>
+              </div>
+
+              <div class="form-group">
+                <input id="idSubscriber3" name="email" type="email" class="form-control" placeholder="Email*" required>
+              </div>
+
+              <div class="form-group">
+                <input id="idSubscriber4" name="location" type="text" class="form-control" placeholder="Nombre de tu localidad*" required>
+              </div>
+
+              <div class="form-group">
+                <input id="idSubscriber5" name="postal_code" type="number" class="form-control" placeholder="Nombre Completo*" required>
+              </div>
+
+              <div id="nuevo-distribuidor-btn-container" class="form-group">
+                <button class="btn puprple_btn" type="submit">Enviar</button>
+              </div>
+
+            </form>
+            
+          </div>
+         </section>
+      </div>
+      
+    </div>
+
+    
+
+{% endblock content %}

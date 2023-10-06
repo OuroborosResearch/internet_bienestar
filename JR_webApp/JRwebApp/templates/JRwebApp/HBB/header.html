@@ -1,0 +1,83 @@
+{% load static %}
+
+  <style>
+    body {
+    margin: 0;
+    padding: 0;
+    font-size: 1rem;
+    line-height: 1.7;
+    font-family: 'Poppins', sans-serif;
+    color: var(--body-text-purple);
+    background-color: #fff;
+    overflow: auto;
+}
+    .container{
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap; 
+        
+    }
+    .img-header{
+        margin: 0;
+        width: 280px;
+        height: 280px;
+    }
+    
+    .image-container {
+        position: relative;
+        display: inline-block;
+        margin: 0;
+}
+.image-text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 80%;
+        max-width: 100%;
+        height: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px;
+        text-align: center;
+        font-size: 1.225rem;
+        color: var(--main-brand-color);
+        background-color: rgba(245, 247, 245, 0);
+        filter: brightness(1.2);
+        z-index: 1;
+}
+
+#header-images {
+  margin: 4% 0 4%;
+}
+
+/* Media queries */
+ @media (max-width: 768px) {
+        .image-container {
+            flex: 0 0 100%;
+        }
+    }
+  </style>
+
+  <!--Creo la sección para el Header y Slider-->
+  <section id="header-images">
+    <div class="container">
+        <div class="image-container" data-aos="zoom-in" data-aos-duration="1500" data-aos-delay="300">
+        <img class="img-header" src="{% static 'JRwebApp/images/cel/bg_2.jpg' %}"  alt="image">
+        <h2 class="image-text"><span>100% SEGURO Y FÁCIL DE INSTALAR</span></h2>
+      </div>
+      <div class="image-container" data-aos="zoom-in" data-aos-duration="1500" data-aos-delay="300">
+        <img class="img-header" src="{% static 'JRwebApp/images/cel/bg_2.jpg' %}"  alt="image">
+        <h2 class="image-text"><span>CONÉCTATE A ALTA VELOCIDAD</span></h2>
+      </div>
+      <div class="image-container" data-aos="zoom-in" data-aos-duration="1500" data-aos-delay="300">
+        <img class="img-header" src="{% static 'JRwebApp/images/cel/bg_2.jpg' %}"  alt="image">
+        <h2 class="image-text"><span>SIN LETRAS CHIQUITAS NI PLAZOS FORZOSOS</span></h2>
+      </div>
+      <div class="image-container" data-aos="zoom-in" data-aos-duration="1500" data-aos-delay="300">
+        <img class="img-header" src="{% static 'JRwebApp/images/cel/bg_2.jpg' %}" alt="image">
+        <h2 class="image-text"><span>CONECTA A TODA LA FAMILIA Y RECARGA CUANDO TÚ QUIERAS</span></h2>
+      </div>
+      </div>
+  </section>

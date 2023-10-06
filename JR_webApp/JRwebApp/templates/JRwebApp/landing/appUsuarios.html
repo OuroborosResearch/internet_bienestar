@@ -1,0 +1,91 @@
+{% load static %}
+
+<!-- About-App-Section-Start -->
+<section id="telefoniaSection" class="row_am about_app_section">
+    <!-- container start -->
+    <div class="container">
+        <!-- row start -->
+      <div class="row">
+        <div class="col-lg-6">
+
+            <!-- about images -->
+          <div class="about_img" data-aos="fade-in" data-aos-duration="1500">
+            <div class="frame_img">
+              <img class="moving_position_animatin" src="{% static 'JRwebApp/images/about-frame.png' %}" alt="image" >
+            </div>
+            <div class="screen_img">
+              <img style="max-width:35%;" class="moving_animation" src="{% static 'JRwebApp/images//products/4.jpg' %}" alt="image" >
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+
+            <!-- about text -->
+          <div class="about_text">
+            <div class="section_title" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100">
+
+                <!-- h2 -->
+              <h2>Conoce nuestra app para <span>Clientes JR.</span></h2>
+
+              <!-- p -->
+              <p>
+                En JRmóvil, entendemos que la recarga de tu teléfono móvil 
+                es esencial para mantener tu conexión con el mundo. Es por eso que nos hemos comprometido 
+                a brindarte una experiencia de recarga rápida, segura y fácil, directamente desde tu teléfono móvil.
+<br><br>
+Con nuestra aplicación, podrás recargar tu teléfono en cuestión de segundos, 
+sin tener que salir de casa o preocuparte por la seguridad de tus datos. Además, 
+ofrecemos una amplia variedad de opciones de recarga, para que puedas elegir el plan que mejor se adapte a tus necesidades y presupuesto.
+
+              </p>
+            </div>
+
+            <!-- UL -->
+            <ul class="app_statstic" id="counter" data-aos="fade-in" data-aos-duration="1500">
+              <li>
+                <div class="icon">
+                  <img src="{% static 'JRwebApp/images/download.png' %}" alt="image" >
+                </div>
+                <div class="text">
+                  <p><span class="counter-value" data-count="{{usr_descargas}}">0</span><span>M+</span></p>
+                  <p>Descargas</p>
+                </div>
+              </li>
+              <li>
+                <div class="icon">
+                  <img src="{% static 'JRwebApp/images/followers.png' %}" alt="image" >
+                </div>
+                <div class="text">
+                  <p><span class="counter-value" data-count="{{user_Len}}">0</span><span>M</span></p>
+                  <p>Usuarios</p>
+                </div>
+              </li>
+              <li>
+                <div class="icon">
+                  <img src="{% static 'JRwebApp/images/reviews.png' %}" alt="image" >
+                </div>
+                <div class="text">
+                  <p><span class="counter-value" data-count="{{usr_clientesSatisfechos}}">0</span><span>+</span></p>
+                  <p>Clientes Satisfechos</p>
+                </div>
+              </li>
+              <li>
+                <div class="icon">
+                  <img src="{% static 'JRwebApp/images/countries.png' %}" alt="image" >
+                </div>
+                <div class="text">
+                  <p><span class="counter-value" data-count="{{usr_estados}}">0</span><span>+</span></p>
+                  <p>Estados</p>
+                </div>
+              </li>
+            </ul>
+            <!-- UL end -->
+          </div>
+          {% include "JRwebApp/landing/utils/par_botones.html" %}
+        </div>
+      </div>
+      <!-- row end -->
+    </div>
+    <!-- container end -->
+  </section>
+  <!-- About-App-Section-end -->

@@ -1,0 +1,54 @@
+
+{% extends 'JRwebApp/landing/base.html' %}
+{% load static %}
+
+{% block title %}Intro{% endblock title %}
+
+{% block content %}
+
+    
+    {% include "JRwebApp/landing/banner_slider.html" %}
+    {% include "JRwebApp/landing/planes.html" %}
+    {% include "JRwebApp/landing/appUsuarios.html" %}
+    {% include "JRwebApp/landing/hbb.html" %}
+    {% include "JRwebApp/landing/distribuidores.html" %}
+    {% include "JRwebApp/landing/about.html" %}
+    {% include "JRwebApp/landing/howItWorks.html" %}
+    <br><br>
+    {% include "JRwebApp/landing/downloadApp.html" %}
+    <br><br>
+    {% include "JRwebApp/landing/faqs.html" %}
+    <br><br>
+    <br><br>
+    
+
+
+    <!-- Whats --
+    {% include "JRwebApp/landing/utils/whats.html" %} -->
+    
+
+
+{% endblock content %}
+
+<!-- Footer-Section end -->
+{% block modals %}
+<!-- VIDEO MODAL -->
+<div class="modal fade youtube-video" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <button id="close-video" type="button" class="button btn btn-default text-right" data-dismiss="modal">
+          <i class="icofont-close-line-circled"></i>
+        </button>
+          <div class="modal-body">
+              <div id="video-container" class="video-container">
+                  <iframe id="youtubevideo" src="" width="640" height="360" frameborder="0" allowfullscreen></iframe>
+              </div>        
+          </div>
+          <div class="modal-footer">
+          </div>
+      </div> 
+  </div>
+</div>
+{% endblock modals %}
+
+    

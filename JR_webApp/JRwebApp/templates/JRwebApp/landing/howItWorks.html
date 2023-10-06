@@ -1,0 +1,103 @@
+{% load static %}
+<!-- How-It-Workes-Section-Start -->
+<section class="row_am how_it_works" id="how_it_work">
+    <!-- container start -->
+    <div class="container">
+      <div class="how_it_inner">
+        <div class="section_title" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="300">
+            <!-- h2 -->
+          <h2><span>¿Cómo funciona?</span> - 3 simples pasos</h2>
+          <!-- p -->
+          <p>Realizar una portabilidad con nosotros es muy sencillo solo tienes que seguir los siguientes pasos <br>
+            y en muy poco tiempo ya estarás usando tu línea JR.</p>
+        </div>
+        <div class="step_block">
+            <!-- UL -->
+          <ul>
+            <!-- step -->
+            <li>
+              <div class="step_text" data-aos="fade-right" data-aos-duration="1500">
+                <h4>Descarga la app</h4>
+                <div class="app_icon">
+                  <a href="https://play.google.com/store/apps/details?id=com.jrapp&hl=es_MX&gl=US&pli=1"><i class="icofont-brand-android-robot"></i></a>
+                  <!--a href="#"><i class="icofont-brand-apple"></i></a>
+                  <a href="#"><i class="icofont-brand-windows"></i></a-->
+                </div>
+                <p></p>
+              </div>
+              <div class="step_number">
+                <h3>01</h3>
+              </div>
+              <div class="step_img" data-aos="fade-left" data-aos-duration="1500">
+                <img src="{% static 'JRwebApp/images/utils/4.webp' %}" alt="image" >
+              </div>
+            </li>
+
+            <!-- step -->
+            <li>
+              <div class="step_text" data-aos="fade-left" data-aos-duration="1500">
+                <h4>Crea una cuenta</h4>
+                <span>Es gratis y super facil</span>
+                <p>Entra con tu cuenta para tener acceso a todas las opciones.</p>
+              </div>
+              <div class="step_number"> 
+                <h3>02</h3>
+              </div>
+              <div class="step_img" data-aos="fade-right" data-aos-duration="1500">
+                <img src="{% static 'JRwebApp/images/utils/5.webp' %}" alt="image" >
+              </div>
+            </li>
+
+            <!-- step -->
+            <li>
+              <div class="step_text" data-aos="fade-right" data-aos-duration="1500">
+                <h4>Busca el formulario de portabilidad y coloca tus datos</h4>
+                <span>Si tienes alguna pregunta consulta nuestras <a href="{% url 'faqs' %}">FAQs</a></span>
+                <p>Con esto podrás ser parta de esta gran experiencia telefónica.</p>
+              </div>
+              <div class="step_number">
+                <h3>03</h3>
+              </div>
+              <div class="step_img" data-aos="fade-left" data-aos-duration="1500">
+                <img src="{% static 'JRwebApp/images/utils/6.webp' %}" alt="image" >
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- video section start -->
+      <div class="yt_video" data-aos="fade-in" data-aos-duration="1500">
+       <!-- animation line -->
+        <div class="anim_line dark_bg">
+          <span><img src="{% static 'JRwebApp/images/anim_line.png' %}" alt="anim_line"></span>
+          <span><img src="{% static 'JRwebApp/images/anim_line.png' %}" alt="anim_line"></span>
+          <span><img src="{% static 'JRwebApp/images/anim_line.png' %}" alt="anim_line"></span>
+          <span><img src="{% static 'JRwebApp/images/anim_line.png' %}" alt="anim_line"></span>
+          <span><img src="{% static 'JRwebApp/images/anim_line.png' %}" alt="anim_line"></span>
+          <span><img src="{% static 'JRwebApp/images/anim_line.png' %}" alt="anim_line"></span>
+          <span><img src="{% static 'JRwebApp/images/anim_line.png' %}" alt="anim_line"></span>
+          <span><img src="{% static 'JRwebApp/images/anim_line.png' %}" alt="anim_line"></span>
+          <span><img src="{% static 'JRwebApp/images/anim_line.png' %}" alt="anim_line"></span>
+        </div>
+        <div class="thumbnil">
+          <img src="{% static 'JRwebApp/images/bg/video_portada.jpg' %}" alt="image" >
+          <a class="popup-youtube play-button" data-url="{% static 'JRwebApp/videos/bienvenida.mp4' %}" data-toggle="modal" data-target="#myModal" title="XJj2PbenIsU">
+            <span class="play_btn">
+              <img src="{% static 'JRwebApp/images/play_icon.png' %}" alt="image" >
+              <div class="waves-block">
+                <div class="waves wave-1"></div>
+                <div class="waves wave-2"></div>
+                <div class="waves wave-3"></div>
+              </div>
+            </span>
+            <span style="color:#689e79; font-weight: 900;">¡BIENVENID@!</span>
+            <p style="color:#82a48c">Primeras Instrucciones</p>
+          </a>
+        </div>
+      </div>
+      <!-- video section end -->
+    </div>
+    <!-- container end -->
+  </section>
+  <!-- How-It-Workes-Section-end -->

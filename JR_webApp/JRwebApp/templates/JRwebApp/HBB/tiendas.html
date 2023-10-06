@@ -1,0 +1,71 @@
+{% load static %}
+<style>
+    #tiendas {
+      margin: 8% 0 8%;
+    }
+    .title-tiendas{
+        margin-top: 4%;
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: var(--main-brand-color);
+        text-align: center;
+        padding-top: 16px;
+    }
+    .container-tiendas{
+        margin: 4%;
+        margin-right: 10%;
+    }
+    .info-tiendas{
+        margin: 20px 55px;
+        display: flex;
+        font-size: 1.25rem;
+    }
+
+    .tiendas-img{
+        float: right;
+        margin-right: 4%;
+    }
+    .tiendas_btn{
+        margin: 4%;
+        justify-content: right;
+        margin-left: 20%;
+    }
+    /* Media queries */
+@media screen and (max-width: 768px) {
+  .title-tiendas {
+    font-size: 2rem;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .title-tiendas {
+    font-size: 1.75rem;
+    padding-top: 8px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .title-tiendas {
+    font-size: 2rem;
+  }
+  
+  .container-tiendas {
+    flex-direction: column;
+  }
+  
+  .tiendas-img {
+    max-width: 80%;
+    margin: 0 auto;
+    margin-bottom: 20px;
+  }
+}
+</style>
+<section id="tiendas">
+    <div class="container-tiendas">
+    <div class="tiendas-recarga" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100">
+    <img class="tiendas-img" src="{% static 'JRwebApp/images/utils/2.jpg' %}" width="20%" alt="">
+    <h1 class="title-tiendas"> ¡Tiendas donde puedes recargar!</h1>
+    <p class="info-tiendas">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Et voluptate cupiditate quae magnam earum dolore reprehenderit? Dolorem neque natus saepe optio.</p>
+    <button type="button" class="white_btn tiendas_btn">TIENDAS PARA RECARGAR</button>
+</div>
+</div>
+</section>
