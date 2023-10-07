@@ -1,0 +1,49 @@
+{% extends 'bienestarwebApp/HBB/base.html' %}
+{% load static %}
+
+
+
+{% block content %}
+
+<style>
+    .icon-work {
+        width:15%;
+    }
+    .hbb_fail_msg {
+      font-size: 1.5rem;
+    }
+</style>
+
+    <div onload="startLoad" class="full_bg">
+
+      <div class="container">
+         <section class="signup_section">
+
+            <div class="top_part">
+                <a class="navbar-brand" href="#">
+                <img src="{% static 'bienestarwebApp/images/logo/jr_blanco.png' %}" alt="image">
+                </a>
+            </div>
+          <!-- Comment Form Section -->
+          <div class="signup_form">
+            <div class="section_title">
+                <img class="icon-work" src="{% static 'bienestarwebApp/images/icons/work.png' %}" alt="image" >
+
+              <h2 class="hbb_fail_msg"> Lo sentimos, por el momento nuestro equipo está trabajando para conseguirte la mejor señal de 
+                <span>Internet de Casa</span></h2>
+
+              <p><br></p>
+              <form id="nuevoDistribuidorSubmit" action="https://www.jrmovil.com/hbb" method="post" >
+                <div id="distribuidoresProspectos-btn-container" class="form-group">
+                    <a  class="btn puprple_btn" href="https://www.jrmovil.com/hbb?sFlag" >Regresar al inicio</a>
+                </div>
+              <form>
+            </div>
+          </div>
+         </section>
+      </div>
+    </div>
+
+    
+
+{% endblock content %}

@@ -1,0 +1,101 @@
+{% load static %}
+<!-- Header Start -->
+<header>
+  <style>
+    .prox{
+    font-size: 12px;
+    color: grey;
+    }
+  </style>
+    <!-- container start -->
+    <div class="container">
+        <!-- navigation bar -->
+      <nav class="navbar navbar-expand-lg">
+        <a class="navbar-brand" href="{% url 'intro' %}">
+          <img src="{% static 'bienestarwebApp/images/logo/JRmovil-mov.png' %}" alt="image" >
+          <!--h1>R & R NEGOCIOS ALTERNOS</h1-->
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon">
+            <!-- <i class="icofont-navigation-menu ico_menu"></i> -->
+            <div class="toggle-wrap">
+              <span class="toggle-bar"></span>
+            </div>
+          </span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="{% url 'intro' %}">Inicio</a>
+            </li>
+            <li class="nav-item has_dropdown">
+              <a class="nav-link" href="#">Acerca</a>
+              <span class="drp_btn"><i class="icofont-rounded-down"></i></span>
+              <div class="sub_menu">
+                <ul>
+                  <li><a href="{% url 'about' %}">Nosotros</a></li>
+                  <li><a href="{% url 'cobertura' %}">Cobertura</a></li>
+                  <li><a href="{% url 'faqs' %}">FAQs</a></li>
+                  <li><a href="{% url 'aviso_privacidad' %}">Aviso de Privacidad</a></li>
+                  <li><a href="{% url 'pags' 'terminos_condiciones' %}">Términos y Condiciones</a></li>
+                  <li><a href="{% url 'pags' 'procedimiento_queja' %}">Procedimiento de queja</a></li>
+                  <li><a href="{% url 'pags' 'carta_derechos' %}">Carta de derechos</a></li>
+                  <li><a href="{% url 'pags' 'formas_pago' %}">Formas de pago</a></li>
+                  <li><a href="{% url 'pags' 'contrato_adhesion' %}">Contrato de adhesión</a></li>
+                  <li><a href="{% url 'pags' 'contrato_adhesion_pospago' %}">Contrato de adhesión pospago</a></li>
+                  <li><a href="{% url 'hbb' %}">HBB</a></li>
+                </ul>
+              </div>
+            </li>
+            <li class="nav-item has_dropdown">
+              <a class="nav-link" href="#">Servicios</a>
+              <span class="drp_btn"><i class="icofont-rounded-down"></i></span>
+              <div class="sub_menu">
+                <ul>
+                  <li><a href="https://jrmovil.pythonanywhere.com/consultas">Consulta de Saldos</a></li>
+                  <li><a href="{% url 'hbb' %}">Internet de Casa</a></li>
+                  <li><a href="#telefoniaSection">Telefonía Móvil y MiFi</a></li>
+                  <li><a href="https://jrmovil.pythonanywhere.com/recargas">Recargas</a></li>
+                </ul>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://jrmovil.pythonanywhere.com/recargas">Recargas</a>
+            </li>
+            <!-- secondery menu start -->
+            <li class="nav-item has_dropdown">
+              <a class="nav-link" href="#">Usuarios</a>
+              <span class="drp_btn"><i class="icofont-rounded-down"></i></span>
+              <div class="sub_menu">
+                <ul>
+                  <li><a href="https://jrmovil.pythonanywhere.com/consultas">Consulta tu Saldo</a></li>
+                  <li><a href="https://jrmovil.pythonanywhere.com/recargas">Recargas</a></li>
+                  <!--li><a href="https://jrmovil.pythonanywhere.com/comprar_sim">Comprar SIM</a></li-->
+                  <li><a href="https://jrmovil.pythonanywhere.com/generar_factura">Facturación</a></li>
+                  <li><a href="">Portabilidades </a><span class="prox"> (Próx)</span></li>
+                  <li><a href="">Inicia Sesión </a><span class="prox"> (Próx)</span></li>
+                </ul>
+              </div>
+            </li>
+            <li class="nav-item has_dropdown">
+              <a class="nav-link" href="#">Distribuidores</a>
+              <span class="drp_btn"><i class="icofont-rounded-down"></i></span>
+              <div class="sub_menu">
+                <ul>
+                  <li><a href="https://jrmovil.pythonanywhere.com/nuevodistribuidor">Ser Distribuidor</a></li>
+                  <li><a href="">Mi Portal </a><span class="prox"> (Próx)</span></li>
+                </ul>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link dark_btn" href="https://jrmovil.pythonanywhere.com/contact">Contáctanos</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <!-- navigation end -->
+    </div>
+    <!-- container end -->
+  </header>

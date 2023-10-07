@@ -1,0 +1,38 @@
+
+{% extends 'bienestarwebApp/landing/base.html' %}
+{% load static %}
+
+{% block title %}Acerca{% endblock title %}
+{% block content %}
+{% if pags.contenido %}
+<section class="row_am faq_section" id="faqs">
+    <!-- container start -->
+    <div class="container">
+      <div class="section_title" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="300">
+        <!-- h2 -->
+        <h2><span></span> {{pags.titulo}}</h2>
+        <!-- p -->
+      </div>
+      <div class="card-body">
+        {{pags.contenido | safe}}
+        </div>
+    
+    </div>
+</section>
+{% endif%}
+  {% if "terminos_condiciones" in request.path %}
+  {% comment %} {% if request.path == "terminos_condiciones" %} {% endcomment %}
+      {% include 'bienestarwebApp/paginas/terminos_condiciones.html' %}
+  {% elif "procedimiento_queja" in request.path %}
+      {% include 'bienestarwebApp/paginas/procedimiento_queja.html' %}
+  {% elif "carta_derechos" in request.path %}
+      {% include 'bienestarwebApp/paginas/carta_derechos.html' %}
+  {% elif "formas_pago" in request.path %}
+      {% include 'bienestarwebApp/paginas/formas_pago.html' %}
+  {% elif request.path == "/pags/contrato_adhesion"  %}
+      {% include 'bienestarwebApp/paginas/contrato_adhesion.html' %}
+  {% elif request.path == "/pags/contrato_adhesion_pospago" %}
+      {% include 'bienestarwebApp/paginas/contrato_adhesion_pospago.html' %}
+{% endif %}
+    
+{% endblock content %}
