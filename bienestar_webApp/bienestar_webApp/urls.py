@@ -25,9 +25,9 @@ urlpatterns = [
 
 
 # Custom title for admin
-admin.site.site_header = 'JRmóvil'
+admin.site.site_header = 'Internet Bienestar'
 admin.site.index_title = 'Panel de Administrador'
-admin.site.site_title = 'JRmóvil'
+admin.site.site_title = 'Internet Bienestar'
 
 # Serve media in debug
 if settings.DEBUG:
