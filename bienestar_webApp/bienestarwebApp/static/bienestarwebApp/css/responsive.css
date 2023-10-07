@@ -1,12 +1,14 @@
+
 :root {
-    --light-purple: #f5fef4;
-    --main-brand-color: #51936b;
-    --bg-purple: #2d812ea3;
-    --main-dark-brand: #51936b4f;
-    --body-text-purple: #3e6646;
+    --bg-principal: #9F2241;
+    --light-purple: #691C32;
+    --main-brand-color: #9F2241;
+    --bg-purple: #691C32;
+    --main-dark-brand: #9F2241;
+    --body-text-purple: #691C32;
     --text-white: #ffffff;
     --bg-white: #ffffff;
-    --slider-dots-color: #D4D2DD;
+    --slider-dots-color: #691C32;
     --light-bg: #DFDAF3;
 }
 
