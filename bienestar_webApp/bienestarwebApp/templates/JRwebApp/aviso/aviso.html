@@ -1,0 +1,56 @@
+
+{% extends 'bienestarwebApp/landing/base.html' %}
+{% load static %}
+
+{% block title %}Aviso de Privacidad{% endblock title %}
+{% block content %}
+
+           <!-- privacidad-Section start -->
+   <section class="row_am faq_section">
+    <!-- container start -->
+    <div class="container">
+      <div class="section_title" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="300">
+        <!-- h2 -->
+        <h2>Aviso de <span>Privacidad</span></h2>
+        <br><br>
+        <!-- p -->
+        <p style="text-align:justify;">Mediante el presente Aviso de Privacidad, y en 
+            atención a las disposiciones contenidas en la 
+            Ley Federal de Protección de Datos Personales 
+            en Posesión de los Particulares, su Reglamento 
+            y disposiciones relacionadas vigentes en México, 
+            se describen los términos en los que se obtendrán, usarán, divulgarán o almacenarán los Datos 
+            Personales proporcionados por el Usuario (el Titular de la línea) que por cualquier medio nos 
+            proporcione JRmóvil, marca registrada de R&R Negocios Alternos S. de R.L de C.V., Designa a R&R 
+            Negocios Alternos S. de R.L de CV.(en lo sucesivo JRmóvil), como responsable, según dicho término 
+            se define en la Ley, quien señala como domicilio para todos los efectos y obligaciones relacionadas 
+            con el presente Aviso el ubicado en Calle Vid N° 148, Colonia Nueva Santa María, Alcaldía Azcapotzalco, 
+            C.P. 02800, Ciudad de México, México.</p>
+      </div>
+      <br><br>
+      <!-- faq data -->
+      <div class="faq_panel">
+        <div class="accordion" id="accordionExample">
+    {% for i in avisos %}
+        <div class="card" data-aos="fade-up" data-aos-duration="1500">
+            <div class="card-header" id="headingSixteen">
+            <h2 class="mb-0">
+                <button type="button" class="btn btn-link collapsed" data-toggle="collapse"
+                data-target="#j{{i.pk}}"><i class="icon_faq icofont-plus"></i></i>{{i.titulo}}</button>
+            </h2>
+            </div>
+            <div id="j{{i.pk}}" class="collapse" aria-labelledby="headingSixteen" data-parent="#accordionExample">
+            <div class="card-body">
+                <p>{{i.contenido}}</p>
+            </div>
+            </div>
+        </div>
+    {% endfor %}
+        </div>
+        </div>
+    </div>
+    </section>
+    <br><br><br>
+
+
+{% endblock content %}

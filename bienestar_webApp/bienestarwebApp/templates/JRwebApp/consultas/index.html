@@ -1,0 +1,183 @@
+{% extends 'bienestarwebApp/landing/base.html' %}
+{% load static %}
+
+
+{% block head %}
+<script src="https://sdk.mercadopago.com/js/v2"></script>
+{% endblock %}
+
+
+
+{% block content %}
+    <div onload="startLoad" class="full_white">
+
+      <div class="container">
+         <section class="signup_section">
+
+          <div class="top_part">
+            <a href="{% url 'intro' %}" class="back_btn" style="color:grey;"><i class="icofont-arrow-left"></i> Regresar</a>
+            <a class="navbar-brand" href="#">
+              <img src="{% static 'bienestarwebApp/images/logo/JRmovil-01.png' %}" alt="image">
+            </a>
+          </div>
+  
+          <!-- Comment Form Section -->
+          <div class="signup_form">
+            <div class="section_title">
+              <h2> Consulta tu <span>Saldo JR</span> </h2>
+              <p>Disfruta de las redes con nuestros <a href="https://jrmovil.pythonanywhere.com/recargas" style="color:#51936b" ><strong>planes que tenemos para ti</strong></a>!<br></p>
+            </div>
+            {% if number %}
+            <div id="consultasContainer">
+                <div class="row">
+                  <div class="consultas-head col-md-6">
+                    <img 
+                      style="
+                      width: 80%;
+                      margin: auto;
+                      align-items: center;
+                      margin: auto;
+                      display: block;"
+                     id="imgWifi" class="wifi_img" src="{% static 'bienestarwebApp/images/wifi/1.png' %}" />
+                    
+                  </div>
+                  <div class="col-md-6">
+                    <ul>
+                      <hr>
+                      <li> {{number}}<li>
+                      <li><strong> {{paquete_name}}</strong></li>
+                      <hr>
+                      <li>Expira el <strong> {{expireDate}}</strong></li>
+                      <hr>
+                      <li>Datos :  <strong> {{initialDataAmt}} mb</strong></li>
+                      <li>Datos Disponibles :  <strong> {{unusedDataAmt}}mb </strong></li>
+                      <hr>
+                      <li>{{totalMin}} min</li>
+                      <li>Disponibles : <strong>{{totalUnusedMin}} min </strong></li>
+                      <hr>
+                      <li>{{totalSMS}} sms</li>
+                      <li>Disponibles :  <strong>{{totalUnusedSMS}} sms </strong></li>
+                    </ul>
+                  </div>
+                </div>
+            </div>
+            {% else %}
+              <form id="recargasSubmit" action="#" method="post" >
+                {% csrf_token %}
+                <div class="form-group">
+                  <input id="idSubscriberI" name="idSubscriber" type="number" class="form-control" placeholder="Número JR">
+                </div>
+
+                <div class="form-group">
+                  <p id="badResponseTxt" style="color:red;">Favor de introducir un número JRmóvil.</p>
+                </div>
+                
+
+
+                <div id="recargas-btn-container" class="form-group">
+                  <button onclick="freeLoader()" class="btn puprple_btn" type="submit">Consultar</button>
+                </div>
+              </form>
+            {% endif %}
+           
+            
+
+            
+
+            
+
+          </div>
+         </section>
+      </div>
+      
+    </div>
+  
+    <script>
+
+      const badResponseTxt = document.getElementById("badResponseTxt");
+      const consultasContainer = document.getElementById("consultasContainer");
+      const idSubscriber = document.getElementById("idSubscriberI");
+      const anotherNumber = document.getElementById("anotherNumber");
+      const imgWifi = document.getElementById("imgWifi");
+
+
+      badResponseTxt.style.display = "none";
+      // consultasContainer.style.display = "none";
+      //anotherNumber.style.display = "none";
+
+      // Get method http message
+      const {
+        host, hostname, href, origin, pathname, port, protocol, search
+      } = window.location;
+
+      // on load
+      window.addEventListener('load', function () {
+        startLoad()
+        setImgWifi()
+      })
+
+      const startLoad = () => {
+        console.log("fff")
+        console.log(search)
+        if(search.includes("ok")){
+          consultasContainer.style.display = "block";
+          var number = search.slice(1, 11);
+          idSubscriber.value = number;
+
+        } 
+        else if (search.includes("denied")) {
+          consultasContainer.style.display = "none";
+          badResponseTxt.style.display = "block";
+        }
+      }
+      
+
+      const displayMB = () => {
+        mbGroup.style.display = "block";
+        mifiGroup.style.display = "none";
+      }
+
+      const displayMifi = () => {
+        mifiGroup.style.display = "block";
+        mbGroup.style.display = "none";
+      }
+
+      idSubscriber.addEventListener("input", function() {
+
+        console.log("fff")
+        console.log(search)
+        // Do something when the selected option changes
+        var selectedOption = idSubscriber.value;
+        console.log("Selected option: " + selectedOption);
+
+        if (selectedOption.length == 10){
+          recargasSubmit.submit();
+          freeLoader();
+        } 
+
+      });
+
+      // free preloader
+      const freeLoader = () => {
+        preloader.style.display = "block";
+      }
+
+      const setImgWifi = () => {
+
+        totalMB = "{{initialDataAmt}}";
+        unusedAmnt = "{{unusedDataAmt}}";
+        porcentage = unusedAmnt / totalMB;
+
+        if( porcentage > .95) img=4;
+        else if( porcentage > .75) img=3;
+        else if( porcentage > .40) img=2;
+        else if( porcentage > .10 ) img=1;
+        else  img=0;
+
+        imgWifi.src = `/static/bienestarwebApp/images/wifi/${img}.png`;
+      }
+     </script>
+
+
+{% endblock content %}
+

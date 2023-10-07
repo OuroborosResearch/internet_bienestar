@@ -1,0 +1,77 @@
+{% load static %}
+
+<style>
+    .title-guia{
+        text-align: center;
+        margin-top: 4%;
+        font-size: 2.5rem;
+        font-weight: 700;
+        padding-top: 16px;
+    }
+    
+    .guia-img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .help{
+        text-align: center;
+        margin: 4%;
+        font-size: 1.875rem;
+        font-weight: bold;
+    }
+    .guide{
+        display: flex;
+        justify-content: center;
+    }
+    .guide button {
+        margin: 0 10px;
+}
+    .guia-download{
+        text-align: center;
+        font-size: 1.25rem;
+    }
+    #guia{
+        background-color: var(--light-purple); 
+        color: var(--main-brand-color);
+        padding: 2% 0 10%; 
+        margin: 0; 
+        width: 100%;
+        box-sizing: border-box;
+    }
+    @media screen and (max-width: 768px) {
+  .title-guia {
+    font-size: 2rem;
+  }
+  
+  .guia-img {
+    width: 50%;
+    height: auto;
+  }
+  
+  .guide button {
+    margin: 5px;
+    padding: 5px 10px;
+    font-size: 0.875rem;
+  }
+  .help {
+    font-size: 1.5rem;
+  }
+  
+  .guia-download {
+    font-size: 1rem;
+  }
+}
+</style>
+<section id="guia">
+    <div class="guia-container" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100">
+        <h1 class="title-guia">GUÍA DE INSTALACIÓN</h1>
+        <img class="guia-img" src="{% static 'bienestarwebApp/images/utils/1.png' %}" width="25%" height="20%" alt="">
+        <h6 class="help">¿Necesitas ayuda?</h6>
+        <p class="guia-download">Descargá la guía de instalación aquí</p>
+        <div class="guide">
+          <button type="button" class="white_btn tiendas_btn"><a href="/static/bienestarwebApp/pdfs/guia-instalacion-activacion_V3.pdf" download= "guia_instalacion.pdf">Descargar guía</a></button>
+          <button type="button" class="white_btn tiendas_btn"><a href="https://api.whatsapp.com/send/?phone=5215590633989&text&type=phone_number&app_absent=0">Asistencia</a></button>
+        </div>
+    </div>
+</section>
