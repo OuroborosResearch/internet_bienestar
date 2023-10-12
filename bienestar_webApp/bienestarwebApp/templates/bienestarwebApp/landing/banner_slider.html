@@ -31,12 +31,12 @@
                       <img class="white_img" src="{% static 'bienestarwebApp/images/appstore_white.png' %}" alt="image" >
                     </a>
                   </li-->
-                  <li>
+                  {% comment %} <li>
                     <a href="https://play.google.com/store/apps/details?id=com.jrapp&hl=es_MX&gl=US">
                       <img class="blue_img" src="{% static 'bienestarwebApp/images/googleplay_blue.png' %}" alt="image" >
                       <img class="white_img" src="{% static 'bienestarwebApp/images/googleplay_white.png' %}" alt="image" >
                     </a>
-                  </li>
+                  </li> {% endcomment %}
                 </ul>
 
                 <!-- users -->
@@ -47,7 +47,7 @@
                     <li><img src="{% static 'bienestarwebApp/images/used03.png' %}" alt="image" ></li>
                     <li><img src="{% static 'bienestarwebApp/images/used04.png' %}" alt="image" ></li>
                   </ul-->
-                  <p>{{usersLen}}M + <br> usuarios JR en todo México</p>
+                  {% comment %} <p>{{usersLen}}M + <br> usuarios JR en todo México</p> {% endcomment %}
                 </div>
               </div>
 
