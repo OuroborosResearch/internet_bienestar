@@ -38,14 +38,14 @@
                   <li><a href="{% url 'about' %}">Nosotros</a></li>
                   <li><a href="{% url 'cobertura' %}">Cobertura</a></li>
                   <li><a href="{% url 'faqs' %}">FAQs</a></li>
-                  <li><a href="{% url 'aviso_privacidad' %}">Aviso de Privacidad</a></li>
+                  {% comment %} <li><a href="{% url 'aviso_privacidad' %}">Aviso de Privacidad</a></li>
                   <li><a href="{% url 'pags' 'terminos_condiciones' %}">Términos y Condiciones</a></li>
                   <li><a href="{% url 'pags' 'procedimiento_queja' %}">Procedimiento de queja</a></li>
                   <li><a href="{% url 'pags' 'carta_derechos' %}">Carta de derechos</a></li>
                   <li><a href="{% url 'pags' 'formas_pago' %}">Formas de pago</a></li>
                   <li><a href="{% url 'pags' 'contrato_adhesion' %}">Contrato de adhesión</a></li>
                   <li><a href="{% url 'pags' 'contrato_adhesion_pospago' %}">Contrato de adhesión pospago</a></li>
-                  <li><a href="{% url 'hbb' %}">HBB</a></li>
+                  <li><a href="{% url 'hbb' %}">HBB</a></li> {% endcomment %}
                 </ul>
               </div>
             </li>
@@ -90,7 +90,8 @@
               </div>
             </li> {% endcomment %}
             <li class="nav-item">
-              <a class="nav-link dark_btn" href="https://jrmovil.pythonanywhere.com/contact">Contáctanos</a>
+              <a class="nav-link dark_btn" href="#">Contáctanos</a>
+              {% comment %} <a class="nav-link dark_btn" href="https://jrmovil.pythonanywhere.com/contact">Contáctanos</a> {% endcomment %}
             </li>
           </ul>
         </div>
