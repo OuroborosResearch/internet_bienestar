@@ -79,12 +79,12 @@
                     <h3>Mapa del Sitio</h3>
                       <ul>
                         <li><a href="">Iniciar Sesión</a></li>
-                        <li><a href="https://jrmovil.pythonanywhere.com/recargas">Recargas</a></li>
+                        {% comment %} <li><a href="https://jrmovil.pythonanywhere.com/recargas">Recargas</a></li>
                         <li><a href="https://jrmovil.pythonanywhere.com/consultas">Consultas</a></li>
-                        <li><a href="https://jrmovil.pythonanywhere.com/generar_factura">Facturación</a></li>
+                        <li><a href="https://jrmovil.pythonanywhere.com/generar_factura">Facturación</a></li> {% endcomment %}
                         <!--li><a href="https://jrmovil.pythonanywhere.com/comprar_sim">Comprar SIM</a></li-->
-                        <li><a href="https://jrmovil.pythonanywhere.com/nuevodistribuidor">Quiero Ser Distribuidor</a></li>
-                        <li><a href="https://jrmovil.pythonanywhere.com/contact">Contáctanos</a></li>
+                        {% comment %} <li><a href="https://jrmovil.pythonanywhere.com/nuevodistribuidor">Quiero Ser Distribuidor</a></li> {% endcomment %}
+                        <li><a href="#">Contáctanos</a></li>
                       </ul>
                   </div>
               </div>
@@ -95,9 +95,12 @@
                   <h3>Acerca</h3>
                     <ul>
                       <li><a href="#">Nosotros</a></li>
-                      <li><a href="{% url 'faqs' %}">FAQs</a></li>
+                      <li><a href="#">FAQs</a></li>
+                      <li><a href="#">Avisos de Privacidad</a></li>
+                      <li><a href="#">Términos y Condiciones</a></li>
+                      {% comment %} <li><a href="{% url 'faqs' %}">FAQs</a></li>
                       <li><a href="{% url 'aviso_privacidad' %}">Avisos de Privacidad</a></li>
-                      <li><a href="{% url 'pags' 'terminos_condiciones' %}">Términos y Condiciones</a></li>
+                      <li><a href="{% url 'pags' 'terminos_condiciones' %}">Términos y Condiciones</a></li> {% endcomment %}
                     </ul>
                 </div>
               </div>
