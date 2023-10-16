@@ -46,7 +46,7 @@ def intro(request):
 
 
     # call traductor
-    planesMB = get_offerings("MB")
+    planesMB = get_offerings("IB-MB")
     planesMB = json.loads(planesMB)
 
     # cantidad de usuarios
