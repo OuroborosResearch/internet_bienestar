@@ -6,9 +6,9 @@
     <div class="container">
       <div class="section_title" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100">
         <!-- h2 -->
-        <h2>Conéctate con <span>Nuestro Planes</span> JRmóvil</h2>
+        <h2>Cámbiate el chip <span> con Internet para el Bienestar</span> </h2>
         <!-- p -->
-        <p>Recargas para usuarios de MB y MiFi.</p>
+        <h3><p style="color:#ffffff">Revisa nuestros planes que tenemos disponibles para ti.</p></h3>
       </div>
 
       <!-- logos slider start -->
@@ -17,7 +17,7 @@
           {% for i in planes %}
           <div class="item">
             <div class="logo">
-              <a href="https://jrmovil.pythonanywhere.com/recargas">
+              <a href="#">
                 <img src="{{i.image}}" alt="{{i.name}}" >
               </a>
             </div>
@@ -25,10 +25,11 @@
           {% endfor %}
         </div>
       </div>
+      <br>
       <!-- logos slider end -->
       <div class="section_title" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100">        
         <!-- p -->
-        <p>Puedes verificar las tarifas vigentes IFT <a href="https://tarifas.ift.org.mx/ift_visor/">aqui.</a></p>
+        <p style="color:#ffffff">Puedes verificar las tarifas vigentes IFT <strong><a style="color:#ffffff" href="https://tarifas.ift.org.mx/ift_visor/">aqui.</strong></a></p>
       </div>
     </div>
     {% include "bienestarwebApp/landing/utils/par_botones.html" %}
