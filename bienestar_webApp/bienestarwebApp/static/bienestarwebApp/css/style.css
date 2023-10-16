@@ -142,7 +142,7 @@
     --main-brand-color: #9F2241;
     --bg-purple: #691C32;
     --main-dark-brand: #9F2241;
-    --body-text-purple: #ffffff;
+    --body-text-purple: #691C32;
     --text-white: #ffffff;
     --bg-white: #ffffff;
     --slider-dots-color: #691C32;
@@ -1943,7 +1943,7 @@ footer {
 }
 
 footer .top_footer {
-    background-color: #3d5e3d;
+    background-color: var(--bg-principal);
     padding: 180px 0 60px 0;
     position: relative;
     overflow: hidden;
