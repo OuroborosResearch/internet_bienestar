@@ -54,49 +54,55 @@
           <!-- row start -->
           <div class="row">
                 <!-- footer link 1 -->
-              <div class="col-lg-4 col-md-6 col-12">
+              <div class="col-lg-2 col-md-6 col-12">
                   <div class="abt_side">
-                    <div class="logo"> <img src="{% static 'bienestarwebApp/images/logo/Bienestar_Logo_1.png' %}" alt="image" ></div>
-                    <ul>
+                    <div class="logo"> <img src="{% static 'bienestarwebApp/images/logo/Bienestar_Logo_1_operador.png' %}" alt="image" ></div>
+                    {% comment %} <ul>
                       <li><a href="#">internetparaelbienestar@jrmovil.com</a></li>
                       <li class="footer_txt_contact"><i>Atención de 09:00 a 21:00 horas de lunes a domingo.</i> <br></li>
-                      {% comment %} <li  class="footer_txt_contact"><span> Whatsapp </span> <a href="#">55 90 63 39 89</a></li> {% endcomment %}
+                      <li  class="footer_txt_contact"><span> Whatsapp </span> <a href="#">55 90 63 39 89</a></li>
                       <li  class="footer_txt_contact"><span>Llama al </span> <a href="#">*044</a> desde tu celular</li>
                       <li  class="footer_txt_contact"><span>o llama al  </span> <a href="#">55 9331 1394</a></li>
                     </ul>
                     <ul class="social_media">
                       <li><a href="mailto:contacto@jrmovil.com?subject=Intro"  target="_blank" ><i class="icofont-send-mail"></i></a></li>
-                        {% comment %} <li><a href="https://www.facebook.com/people/JRm%C3%B3vil/100063792353384/"><i class="icofont-facebook"></i></a></li>
+                        <li><a href="https://www.facebook.com/people/JRm%C3%B3vil/100063792353384/"><i class="icofont-facebook"></i></a></li>
                         <li><a href="https://www.instagram.com/jrmovil.mx/" ><i class="icofont-instagram"></i></a></li>
-                        <li><a href="http://m.me/100063792353384" target="_blank" ><i class="icofont-facebook-messenger"></i></a></li> {% endcomment %}
-                    </ul>
+                        <li><a href="http://m.me/100063792353384" target="_blank" ><i class="icofont-facebook-messenger"></i></a></li>
+                    </ul> {% endcomment %}
                   </div>
               </div>
 
               <!-- footer link 2 -->
               <div class="col-lg-3 col-md-6 col-12">
                   <div class="links">
-                    {% comment %} <h3>Mapa del Sitio</h3>
+                    <h3>Consulta</h3>
                       <ul>
-                        <li><a href="">Iniciar Sesión</a></li>
-                        <li><a href="https://jrmovil.pythonanywhere.com/recargas">Recargas</a></li>
+                        <li><a href="">Cobertura</a></li>
+                        {% comment %} <li><a href="https://jrmovil.pythonanywhere.com/recargas">Recargas</a></li>
                         <li><a href="https://jrmovil.pythonanywhere.com/consultas">Consultas</a></li>
                         <li><a href="https://jrmovil.pythonanywhere.com/generar_factura">Facturación</a></li>
-                        <!--li><a href="https://jrmovil.pythonanywhere.com/comprar_sim">Comprar SIM</a></li-->
-                        <li><a href="https://jrmovil.pythonanywhere.com/nuevodistribuidor">Quiero Ser Distribuidor</a></li>
-                        <li><a href="#">Contáctanos</a></li>
-                      </ul> {% endcomment %}
+                        <li><a href="https://jrmovil.pythonanywhere.com/comprar_sim">Comprar SIM</a></li>
+                        <li><a href="https://jrmovil.pythonanywhere.com/nuevodistribuidor">Quiero Ser Distribuidor</a></li> {% endcomment %}
+                        <li><a href="#">Preguntas frecuentes</a></li>
+                      </ul> 
                   </div>
               </div>
 
               <!-- footer link 3 -->
-              <div class="col-lg-3 col-md-6 col-12">
+              <div class="col-lg-5 col-md-6 col-12">
                 <div class="links">
-                  <h3>Acerca</h3>
+                  <h3>Legales</h3>
                     <ul>
-                      <li><a href="#">Nosotros</a></li>
-                      <li><a href="#">FAQs</a></li>
                       <li><a href="#">Avisos de Privacidad</a></li>
+                      <li><a href="#">Términos y condiciones de planes</a></li>
+                      <li><a href="#">Política de uso justo</a></li>
+                      <li><a href="{% url 'pags' 'contrato_adhesion' %}">Contrato de Adhesión con Profeco</a></li>
+                      <li><a href="#">Carta de derechos mínimos de usuarios</a></li>
+                      <li><a href="#">Buscador de Tarifas IFT</a></li>
+                      <li><a href="#">Código de gestión de tráfico de la red</a></li>
+                      <li><a href="#">Area de colaboración con la justicia</a></li>
+                      <li><a href="#">Formatos simplificados</a></li>
                       {% comment %} <li><a href="#">Términos y Condiciones</a></li> {% endcomment %}
                       {% comment %} <li><a href="{% url 'faqs' %}">FAQs</a></li>
                       <li><a href="{% url 'aviso_privacidad' %}">Avisos de Privacidad</a></li>
@@ -108,7 +114,7 @@
               <!-- footer link 4 -->
               <div class="col-lg-2 col-md-6 col-12">
                 <div class="try_out">
-                    {% comment %} <h3>Descarga Nuestras Apps</h3>
+                     <h3>Descarga Nuestras Apps</h3>
                     <ul class="app_btn">
                       <!--li>
                         <a href="#">
@@ -120,7 +126,7 @@
                           <img src="{% static 'bienestarwebApp/images/googleplay_blue.png' %}" alt="image" >
                         </a>
                       </li>
-                    </ul> {% endcomment %}
+                    </ul> 
                 </div>
               </div>
           </div>
