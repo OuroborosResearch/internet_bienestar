@@ -90,7 +90,7 @@
               </div>
 
               <!-- footer link 3 -->
-              <div class="col-lg-5 col-md-6 col-12">
+              <div class="col-lg-4 col-md-6 col-12">
                 <div class="links">
                   <h3>Legales</h3>
                     <ul>
@@ -114,17 +114,20 @@
               <!-- footer link 4 -->
               <div class="col-lg-2 col-md-6 col-12">
                 <div class="try_out">
-                     <h3>Descarga Nuestras Apps</h3>
+                     {% comment %} <h3>Descarga Nuestras Apps</h3> {% endcomment %}
                     <ul class="app_btn">
                       <!--li>
                         <a href="#">
                           <img src="{% static 'bienestarwebApp/images/appstore_blue.png' %}" alt="image" >
                         </a>
                       </li-->
-                      <li>
+                      {% comment %} <li>
                         <a href="https://play.google.com/store/apps/details?id=com.jrapp&hl=es_MX&gl=US">
                           <img src="{% static 'bienestarwebApp/images/googleplay_blue.png' %}" alt="image" >
                         </a>
+                      </li> {% endcomment %}
+                      <li>
+                        <img src="{% static 'bienestarwebApp/images/Contacto.png' %}" alt="image" width="303" height="206">
                       </li>
                     </ul> 
                 </div>
