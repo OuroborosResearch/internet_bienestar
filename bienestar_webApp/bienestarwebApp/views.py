@@ -279,3 +279,6 @@ def hbb_result_ok(request):
 
 def redireccion_recarga(request):
     return redirect('https://jrmovil.pythonanywhere.com/recargas')
+
+def compraChip(request):
+    return render(request, "bienestarwebApp/compraChip/compraChip.html")

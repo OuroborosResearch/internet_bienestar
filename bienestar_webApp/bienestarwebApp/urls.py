@@ -19,4 +19,5 @@ urlpatterns = [
     path('hbb_result/ok', landing_views.hbb_result_ok, name="hbb_result_ok"),
     path('hbb_result/', landing_views.hbb_result_fail, name="hbb_result_fail"),
     path('redireccionar/', landing_views.redireccion_recarga, name='redireccion_recarga'),
+    path('compra_tu_chip_ib/', landing_views.compraChip, name='compra_tu_chip_ib'),
 ]
