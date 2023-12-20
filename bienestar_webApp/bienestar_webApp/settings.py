@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'ckeditor',
     'bienestarwebApp',
-    'web_api'
+    'web_api',
+    'ventas'
 ]
 
 MIDDLEWARE = [
