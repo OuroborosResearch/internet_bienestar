@@ -9,14 +9,14 @@ class Venta(models.Model):
     celular = models.IntegerField()
     calle = models.CharField(max_length=50)
     no_ext = models.IntegerField()
-    no_int = models.IntegerField()
+    no_int = models.IntegerField(blank=True, null=True)
     colonia = models.CharField(max_length=50)
     codigo_postal = models.IntegerField()
     estado = models.CharField(max_length=50)
     municipio = models.CharField(max_length=50)
     referencias = models.TextField()
     created_date = models.DateTimeField(
-            default=timezone.now)
+            auto_now_add=True, blank=True, null=True)
 
     class Meta:
         verbose_name = 'Venta'
