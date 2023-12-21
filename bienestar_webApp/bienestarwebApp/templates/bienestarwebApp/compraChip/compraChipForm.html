@@ -1,0 +1,66 @@
+{% extends 'bienestarwebApp/landing/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<style>
+  .contact_form {
+    width: 100%!important;
+  }
+  .contact_section_b {
+    padding: 10%;
+  }
+  .contact_txt_footer {
+    font-size: 12px;
+    padding: 1% 5% 0;
+  }
+  .contact_form_title {
+    font-size: 2rem;
+    margin: 2% 20% 5%;
+    text-align: center;
+  }
+</style>
+
+    <div onload="startLoad" class="full_bg">
+
+      <div class="container">
+         <section class="signup_section">
+
+        <div class="top_part">
+            <a href="https://www.internetbienestar.com.mx/" class="back_btn"><i class="icofont-arrow-left"></i> Regresar</a>
+        </div>
+  
+          <!-- Comment Form Section -->
+          <div class="signup_form row contact_form">
+            <div class="contact_form_title">
+              <h2>Llena tus datos y ¡adquiere tu Chip! </h2>
+            </div>
+
+            <div class="section_title col-md-5">
+              <div class="contact_section_b">
+                <p align = "justify">Chip con 10000 Mb para navegar en internet, 1000 minutos y 500 sms para que siempre estes 
+                    conectado todos esto durante 15 dias.<br>
+                    Estas a un paso de tener tu chip.
+                </p>
+              </div>
+            </div>
+            <div class="col-md-6">
+                <form id="compraTuChipSubmit" action="#" method="post" >
+                    {% csrf_token %}
+                    <div class="form-group">
+                        {{ form.as_table }}
+                    </div>
+                    <div id="distribuidoresProspectos-btn-container" class="form-group">
+                        <button onclick="freeLoader()" class="btn puprple_btn" type="submit" name='mail'>Comprar</button>
+                    </div>
+                </form>
+            </div>
+          </div>
+         </section>
+      </div>
+      
+    </div>
+
+    
+
+{% endblock content %}

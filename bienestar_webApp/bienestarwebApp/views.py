@@ -4,6 +4,7 @@ from django.template import RequestContext
 from django.views.decorators.csrf import csrf_protect
 import datetime
 from .models import Paginas, Faqs, Entradas, Reviews, Planes, Aviso
+from .forms import VentasFormulario
 from web_api.api import get_offerings, check_cobertura, get_preferences, get_profile_data_clean, get_all_mb_plans, get_all_mifi_plans, get_offer_id, get_offer_price, get_users_length, getUserByNumber, send_subscriptions
 from django.http import HttpResponseRedirect
 from django.conf import settings
@@ -279,3 +280,14 @@ def hbb_result_ok(request):
 
 def redireccion_recarga(request):
     return redirect('https://jrmovil.pythonanywhere.com/recargas')
+
+def compraChip(request):
+    if request.method == "POST":
+        form = VentasFormulario(request.POST)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.save()
+            return redirect('compra_tu_chip_ib')
+    else:
+        form = VentasFormulario()
+    return render(request, "bienestarwebApp/compraChip/compraChipForm.html", {'form': form})

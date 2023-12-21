@@ -19,6 +19,12 @@
         <img src="{% static 'bienestarwebApp/images/planes/ib_plan1530.png' %}" alt="Promo plan 15 dias" style="width:30%; height:30%;">
         <img src="{% static 'bienestarwebApp/images/planes/ib_plan200.png' %}" alt="Promo plan 15 dias" style="width:30%; height:30%;">
       </div>
+      <div class="img_intro_1" style="text-align: center; margin:2.5rem 1.5rem 1.5rem 1.5rem;">
+        {% comment %} <a href="https://jrmovil.pythonanywhere.com/recargas" alt="compra tu chip"> {% endcomment %}
+        <a href="{% url 'compra_tu_chip_ib' %}" alt="compra tu chip">
+          <img src="{% static 'bienestarwebApp/images/planes/compra_chip.png' %}" alt="compra tu chip" style="width:30%; height:30%; ">
+        </a>
+      </div>
       <br><br>
       <div class="section_title">
         <h2><span style="color:#691C32;">¡RECIBE BENEFICIOS</span> </h2>
