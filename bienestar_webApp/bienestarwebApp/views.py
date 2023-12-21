@@ -287,7 +287,10 @@ def compraChip(request):
         if form.is_valid():
             post = form.save(commit=False)
             post.save()
-            return redirect('compra_tu_chip_ib')
+            return redirect('pago')
     else:
         form = VentasFormulario()
     return render(request, "bienestarwebApp/compraChip/compraChipForm.html", {'form': form})
+
+def paymentChip(request):
+    return render(request,"bienestarwebApp/compraChip/paymentChip.html")
