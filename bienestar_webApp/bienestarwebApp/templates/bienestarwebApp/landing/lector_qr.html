@@ -1,8 +1,55 @@
 {% load static %}
 
-<section class="row_am trusted_section" style="background-color:#F0F4EC">
+<style>
+    .content_col {
+        display:flex;
+        margin:2rem 2rem 0rem 2rem;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+    }
+    .left_side {
+        flex:1;
+        margin-left: 4em;
+    }
+    .right_side {
+        margin-right: 5em;
+    }
+    p.parrafo {
+        font-weight: bold;
+        color:#902B48;
+        font-size: xxx-large;
+        line-height:1.5em;
+        word-spacing: 0.25em;
+    }
+    p.parrafo2 {
+        color:#818280;
+        font-weight: 500;
+        font-size: 22px;
+        word-spacing: 0.5em;
+    }
+    p.parrafo3 {
+        color:#818280;
+        font-weight: bold;
+        font-size: 25px;
+    }
+</style>
 
-    
-   
+<section class="row_am trusted_section" style="background-color:#F0F4EC">
+    <div class="content_col">
+        <div class="left_side">
+            <p class="parrafo" align="justify">¡Comprueba que tu <br>
+                 celular es compatible!</p>
+            <p class="parrafo2">Para que puedas disfrutar la máxima velocidad de<br>
+                navegación y calidad en llamadas asegúrate que tu<br>
+                celular es compatible con nuestra red.
+            </p>     
+            <p class="parrafo3">¡Escanea el QR y sigue los pasos!</p>
+        </div>
+        <div class="right_side">
+            <img src="{% static 'bienestarwebApp/images/bienestar/qr_compatibilidad.png' %}" alt="" class="qr">
+        </div>
+    </div>
+
 </section>
   <!-- Trusted Section ends -->
