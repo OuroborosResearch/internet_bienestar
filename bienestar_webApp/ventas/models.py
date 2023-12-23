@@ -16,8 +16,8 @@ class Venta(models.Model):
     estado = models.CharField(max_length=50)
     municipio = models.CharField(max_length=50)
     referencias = models.TextField()
-    precio = models.IntegerField(default=0)
-    cantidad = models.IntegerField(default=1)
+    precio = models.IntegerField()
+    cantidad = models.IntegerField()
     created_date = models.DateTimeField(
             auto_now_add=True, blank=True, null=True)
 
