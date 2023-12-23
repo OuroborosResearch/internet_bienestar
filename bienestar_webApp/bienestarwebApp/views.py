@@ -334,17 +334,17 @@ def compraChip(request):
            
             url = "https://jrmovil.pythonanywhere.com/IBienestar-services/2.0/api/sim-purchase/"
             response = requests.post(url, data=raw)
-
+            
             if response.status_code == 201:
-                print("Response compra SIM --->>>>> ", response)
+                print("Response compra SIM --->>>>> ", response.json()['purchase_response']['Gateaway_link'])
                 print("SIM solicitada correctamente")
             else:
                 raise Exception("Error al solicitar tu sim")
 
             #return HttpResponseRedirect(preference_mo["init_point"])
-            #return render(request, 'JRwebApp/recargas/mp_iframe.html', {"iframe_url" : preference_mo["init_point"]})
+            return render(request, 'bienestarwebApp/compraChip/mo_iframe.html', {"iframe_url" : response.json()['purchase_response']['Gateaway_link']})
 
-            return redirect('pago')
+            #return redirect('pago')
     else:
         form = VentasFormulario()
     return render(request, "bienestarwebApp/compraChip/compraChipForm.html", {'form': form})
