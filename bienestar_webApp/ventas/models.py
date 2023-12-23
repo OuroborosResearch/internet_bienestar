@@ -4,6 +4,14 @@ from django.utils import timezone
 
 
 class Venta(models.Model):
+    PLANES_CHOICES = (
+        (99, 'Obten tu Chip 99'),
+        (50, 'Plan 50'),
+        (65, 'Plan 65'),
+        (100, 'Plan 100'),
+        (125, 'Plan 125'),
+        (200, 'Plan 200'),
+    )
     nombre = models.CharField(max_length=200)
     apellido = models.CharField(max_length=200)
     email = models.EmailField()
@@ -16,7 +24,7 @@ class Venta(models.Model):
     estado = models.CharField(max_length=50)
     municipio = models.CharField(max_length=50)
     referencias = models.TextField()
-    precio = models.IntegerField()
+    precio = models.IntegerField(choices=PLANES_CHOICES)
     cantidad = models.IntegerField()
     created_date = models.DateTimeField(
             auto_now_add=True, blank=True, null=True)
