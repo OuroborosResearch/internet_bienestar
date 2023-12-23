@@ -1,5 +1,5 @@
 from django import forms
-from django.forms import NumberInput, TextInput, EmailInput, HiddenInput, Textarea
+from django.forms import NumberInput, TextInput, EmailInput, HiddenInput, Textarea, ChoiceField, Select
 from ventas.models import Venta
 
 class VentasFormulario(forms.ModelForm):
@@ -24,7 +24,7 @@ class VentasFormulario(forms.ModelForm):
             'estado': TextInput(attrs={'placeholder': 'Estado'}),
             'municipio': TextInput(attrs={'placeholder': 'Municipio'}),
             'referencias': Textarea(attrs={'placeholder': 'Referencia del domicilio', 'rows': 5,'cols':50,'style':'height: 300%'}),
-            'precio': NumberInput(attrs={'placeholder': 'Precio'}),
+            'precio': Select(choices=Venta.PLANES_CHOICES,attrs={'placeholder': 'Elige tu plan'}),
             'cantidad': NumberInput(attrs={'placeholder': 'Cantidad'}),
             'created_date': HiddenInput(
                 attrs={
