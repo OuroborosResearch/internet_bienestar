@@ -5,6 +5,7 @@ from django.utils import timezone
 
 class Venta(models.Model):
     PLANES_CHOICES = (
+        (99, 'Obten tu Chip 99'),
         (50, 'Plan 50'),
         (65, 'Plan 65'),
         (100, 'Plan 100'),
