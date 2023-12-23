@@ -12,9 +12,10 @@ class VentasFormulario(forms.ModelForm):
         model = Venta
         fields ="__all__"
         widgets = {
-            'nombre': TextInput(attrs={'placeholder': 'Nombre Completo'}),
+            'nombre': TextInput(attrs={'placeholder': 'Nombre'}),
+            'apellido': TextInput(attrs={'placeholder': 'Apellido'}),
             'email': TextInput(attrs={'placeholder': 'Correo Electronico'}),
-            'celular': TextInput(attrs={'placeholder': 'Telefono Celular'}),
+            'celular': NumberInput(attrs={'placeholder': 'Telefono Celular'}),
             'calle': TextInput(attrs={'placeholder': 'Calle'}),
             'no_ext': TextInput(attrs={'placeholder': 'Numero Exterior'}),
             'no_int': TextInput(attrs={'placeholder': 'Numero Interior'}),
@@ -23,6 +24,8 @@ class VentasFormulario(forms.ModelForm):
             'estado': TextInput(attrs={'placeholder': 'Estado'}),
             'municipio': TextInput(attrs={'placeholder': 'Municipio'}),
             'referencias': Textarea(attrs={'placeholder': 'Referencia del domicilio', 'rows': 5,'cols':50,'style':'height: 300%'}),
+            'precio': NumberInput(attrs={'placeholder': 'Precio'}),
+            'cantidad': NumberInput(attrs={'placeholder': 'Cantidad'}),
             'created_date': HiddenInput(
                 attrs={
                     'required': False,

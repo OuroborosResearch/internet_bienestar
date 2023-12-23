@@ -5,16 +5,19 @@ from django.utils import timezone
 
 class Venta(models.Model):
     nombre = models.CharField(max_length=200)
+    apellido = models.CharField(max_length=200)
     email = models.EmailField()
     celular = models.IntegerField()
     calle = models.CharField(max_length=50)
-    no_ext = models.IntegerField()
-    no_int = models.IntegerField(blank=True, null=True)
+    no_ext = models.CharField(max_length=50)
+    no_int = models.CharField(max_length=10,blank=True, null=True)
     colonia = models.CharField(max_length=50)
-    codigo_postal = models.IntegerField()
+    codigo_postal = models.CharField(max_length=10)
     estado = models.CharField(max_length=50)
     municipio = models.CharField(max_length=50)
     referencias = models.TextField()
+    precio = models.IntegerField()
+    cantidad = models.IntegerField()
     created_date = models.DateTimeField(
             auto_now_add=True, blank=True, null=True)
 
