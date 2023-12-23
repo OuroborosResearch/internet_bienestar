@@ -282,11 +282,68 @@ def redireccion_recarga(request):
     return redirect('https://jrmovil.pythonanywhere.com/recargas')
 
 def compraChip(request):
+    base_precio = 99
+    shipment = 30
     if request.method == "POST":
         form = VentasFormulario(request.POST)
         if form.is_valid():
             post = form.save(commit=False)
+            payload = {
+                'nombre':form.cleaned_data['nombre'],
+                'apellido':form.cleaned_data['apellido'],
+                'email':form.cleaned_data['email'],
+                'celular':form.cleaned_data['celular'],
+                'calle':form.cleaned_data['calle'],
+                'numExt':form.cleaned_data['no_ext'],
+                'numInt':form.cleaned_data['no_int'],
+                'colonia':form.cleaned_data['colonia'],
+                'codigo_postal':form.cleaned_data['codigo_postal'],
+                'estado':form.cleaned_data['estado'],
+                'municipio':form.cleaned_data['municipio'],
+                'referencias':form.cleaned_data['referencias'],
+                'precio':form.cleaned_data['precio'],
+                'cantidad':form.cleaned_data['cantidad']
+            }
             post.save()
+
+            print(f"[Info] Web Mercado pago Init... {payload['nombre']} {payload['email']}")
+            
+            if payload["cantidad"] > 1 : precio = base_precio * payload["cantidad"] 
+            else: precio = base_precio
+
+            precio += shipment
+
+            raw = {
+                "nombre": payload["nombre"],
+                "apellido": payload["apellido"],
+                "email": payload["email"],
+                "celular": payload["celular"],
+                "calle": payload["calle"],
+                "numExt": payload["numExt"],
+                "numInt": payload["numInt"],
+                "colonia": payload["colonia"],
+                "cpostal": payload["codigo_postal"],
+                "estado": payload["estado"],
+                "municipio": payload["municipio"],
+                "refDomicilio": payload["referencias"],
+                "precio": payload["precio"],
+                "cantidad": payload["cantidad"],
+            }
+
+            print("Payload compra SIM", raw)
+           
+            url = "https://jrmovil.pythonanywhere.com/IBienestar-services/2.0/api/sim-purchase/"
+            response = requests.post(url, data=raw)
+
+            if response.status_code == 201:
+                print("Response compra SIM --->>>>> ", response)
+                print("SIM solicitada correctamente")
+            else:
+                raise Exception("Error al solicitar tu sim")
+
+            #return HttpResponseRedirect(preference_mo["init_point"])
+            #return render(request, 'JRwebApp/recargas/mp_iframe.html', {"iframe_url" : preference_mo["init_point"]})
+
             return redirect('pago')
     else:
         form = VentasFormulario()
