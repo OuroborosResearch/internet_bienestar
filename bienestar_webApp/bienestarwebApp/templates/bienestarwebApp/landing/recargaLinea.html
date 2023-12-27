@@ -1,0 +1,108 @@
+{% load static %}
+
+<style>
+    .content_col {
+        display:flex;
+        margin:2rem 2rem 0rem 2rem;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+    }
+    .linea_recarga {
+        flex:1;
+        margin-left: 4em;
+        justify-content: center;
+    }
+    .linea_recarga img {
+         margin: 10px;
+    }
+    .punto_recarga {
+        margin-right: 4em;
+    }
+
+    @charset "utf-8";
+    .tarjeta{
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    width:420px;
+    border: 1px solid lightgray;
+    box-shadow: 2px 2px 8px 4px #d3d3d3d1;
+    border-radius:15px;
+    font-family: sans-serif;
+    }
+    .titulo{
+    font-size: 24px;
+    padding: 10px 10px 0 10px;;
+    }
+    .cuerpo{
+    padding: 10px;
+    }
+    .pie{
+    
+    background: #6699ff;
+    border-radius:0 0 15px 15px;
+    padding: 10px;
+    text-align:center;
+
+    }
+    .pie a{
+        text-decoration: none;
+        color: #902B48;
+        font-size: larger;
+        font-weight: bold;
+    }
+    .pie a:after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    content: ""
+    }
+</style>
+
+<section class="row_am trusted_section" style="background-color:#F0F4EC">
+    <div class="simple_image" style=" margin:2rem; display:flex; align-items: center; justify-content: center; margin: 2rem">
+        <img src="{% static 'bienestarwebApp/images/bienestar/banner_recarga_tu_linea.png' %}" style="height:75%; width:75%;">
+    </div>
+    <div class="content_col">
+        <div class="linea_recarga">
+            <a href="https://recarga.internetparaelbienestar.mx/bienestar">
+                <img src="{% static 'bienestarwebApp/images/bienestar/boton_recarga_linea.png' %}" style="height:35%; width:35%;" alt="muestra">
+            </a>
+            <a href="https://internetparaelbienestar.mx/">
+                <img src="{% static 'bienestarwebApp/images/bienestar/boton_puntos_recarga.png' %}" style="height:35%; width:35%;" alt="muestra">
+            </a>
+            
+        </div>
+        <div class="punto_recarga">
+        </div>
+        {% comment %} <div class="linea_recarga">
+            <div class="tarjeta">
+                <div class="titulo">RECARGA EN LÍNEA</div>
+                <div class="cuerpo">
+                    <img src="/imgs/cards0-img.jpg" alt="muestra">
+                    lorem ipsum
+                </div>
+                <div class="pie">
+                    <a href="#">AQUÍ</a>
+                </div>
+            </div>        
+        </div>
+        <div class="punto_recarga">
+            <div class="tarjeta">
+                <div class="titulo">CONSULTA PUNTOS DE RECARGA</div>
+                <div class="cuerpo">
+                    <img src="/imgs/cards0-img.jpg" alt="muestra">
+                    lorem ipsum
+                </div>
+                <div class="pie">
+                    <a href="#">AQUÍ</a>
+                </div>
+            </div>
+        </div> {% endcomment %}
+    </div>
+</section>
+  <!-- Trusted Section ends -->
