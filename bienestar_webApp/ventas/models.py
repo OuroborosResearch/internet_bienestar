@@ -5,12 +5,12 @@ from django.utils import timezone
 
 class Venta(models.Model):
     PLANES_CHOICES = (
-        (99, 'Obten tu Chip 99'),
-        (50, 'Plan 50'),
-        (65, 'Plan 65'),
-        (100, 'Plan 100'),
-        (125, 'Plan 125'),
-        (200, 'Plan 200'),
+        (100, 'Obten tu Chip'),
+        (50, 'Paquete 50'),
+        (65, 'Paquete 65'),
+        (100, 'Paquete 100'),
+        (125, 'Paquete 125'),
+        (200, 'Paquete 200'),
     )
     nombre = models.CharField(max_length=200)
     apellido = models.CharField(max_length=200)
