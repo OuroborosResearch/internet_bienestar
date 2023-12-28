@@ -25,8 +25,8 @@
       {% include 'bienestarwebApp/paginas/terminos_condiciones.html' %}
   {% elif "procedimiento_queja" in request.path %}
       {% include 'bienestarwebApp/paginas/procedimiento_queja.html' %}
-  {% elif "carta_derechos" in request.path %}
-      {% include 'bienestarwebApp/paginas/carta_derechos.html' %}
+  {% elif "carta_de_derechos" in request.path %}
+      {% include 'bienestarwebApp/paginas/carta_de_derechos.html' %}
   {% elif "formas_pago" in request.path %}
       {% include 'bienestarwebApp/paginas/formas_pago.html' %}
   {% elif request.path == "/pags/contrato_adhesion"  %}
@@ -35,6 +35,12 @@
       {% include 'bienestarwebApp/paginas/contrato_adhesion_pospago.html' %}
   {% elif request.path == "/pags/aviso_privacidad" %}
       {% include 'bienestarwebApp/paginas/aviso_privacidad.html' %}
+  {% elif request.path == "/pags/uso_justo" %}
+      {% include 'bienestarwebApp/paginas/uso_justo.html' %}
+  {% elif request.path == "/pags/codigo_gestion_de_red" %}
+      {% include 'bienestarwebApp/paginas/codigo_gestion_de_red.html' %}
+  {% elif request.path == "/pags/colaboracion_justicia" %}
+      {% include 'bienestarwebApp/paginas/colaboracion_justicia.html' %}
 {% endif %}
     
 {% endblock content %}
