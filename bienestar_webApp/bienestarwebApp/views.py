@@ -282,7 +282,7 @@ def redireccion_recarga(request):
     return redirect('https://jrmovil.pythonanywhere.com/recargas')
 
 def compraChip(request):
-    base_precio = 99
+    base_precio = 100
     shipment = 30
     if request.method == "POST":
         form = VentasFormulario(request.POST)
@@ -312,7 +312,7 @@ def compraChip(request):
             else: precio = base_precio
 
             precio += shipment
-
+            print(f"[Info] precio variable... ", precio)
             raw = {
                 "nombre": payload["nombre"],
                 "apellido": payload["apellido"],
@@ -326,7 +326,8 @@ def compraChip(request):
                 "estado": payload["estado"],
                 "municipio": payload["municipio"],
                 "refDomicilio": payload["referencias"],
-                "precio": payload["precio"],
+                #"precio": payload["precio"],
+                "precio": payload["precio"] * payload["cantidad"],
                 "cantidad": payload["cantidad"],
             }
 
