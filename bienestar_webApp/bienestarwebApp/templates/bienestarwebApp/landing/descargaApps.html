@@ -1,0 +1,36 @@
+{% load static %}
+
+<style>
+    .content_col {
+        display:flex;
+        margin:2rem 2rem 0rem 2rem;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+    }
+ 
+    
+</style>
+
+<section class="row_am trusted_section" style="background-color:#FFFFFF">
+    <div class="simple_image" style=" margin:2rem; display:flex; align-items: center; justify-content: center; margin: 2rem">
+        <img src="{% static 'bienestarwebApp/images/bienestar/banner_obten_app_internet.png' %}" style="height:75%; width:75%;">
+    </div>
+    <div class="parrafo1">
+        <p>
+            Consulta tu saldo, realiza recargas de paquetes, ¡y mucho más! <br>
+            Descarga la app AQUÍ:
+        </p>
+    </div>
+    <div class="content_col">
+        <div class="descarga">
+            <a href="https://recarga.internetparaelbienestar.mx/bienestar">
+                <img src="{% static 'bienestarwebApp/images/bienestar/app_store.webp' %}" style="height:75%; width:75%;" alt="muestra">
+            </a>
+            <a href="https://internetparaelbienestar.mx/">
+                <img src="{% static 'bienestarwebApp/images/bienestar/google_play.webp' %}" style="height:75%; width:75%;" alt="muestra">
+            </a>
+        </div>
+       
+</section>
+  <!-- Trusted Section ends -->

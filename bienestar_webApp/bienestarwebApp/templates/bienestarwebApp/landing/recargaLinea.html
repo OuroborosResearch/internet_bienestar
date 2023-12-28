@@ -9,58 +9,25 @@
         flex-direction: row;
     }
     .linea_recarga {
-        flex:1;
-        margin-left: 4em;
-        justify-content: center;
+        margin:0% 10%; 
+        display:flex; 
+        justify-content:space-around; 
+        align-items: center;
     }
-    .linea_recarga img {
-         margin: 10px;
-    }
-    .punto_recarga {
-        margin-right: 4em;
-    }
-
-    @charset "utf-8";
-    .tarjeta{
-    display:flex;
-    flex-direction:column;
-    justify-content:space-between;
-    width:420px;
-    border: 1px solid lightgray;
-    box-shadow: 2px 2px 8px 4px #d3d3d3d1;
-    border-radius:15px;
-    font-family: sans-serif;
-    }
-    .titulo{
-    font-size: 24px;
-    padding: 10px 10px 0 10px;;
-    }
-    .cuerpo{
-    padding: 10px;
-    }
-    .pie{
     
-    background: #6699ff;
-    border-radius:0 0 15px 15px;
-    padding: 10px;
-    text-align:center;
+    .puntos_recarga {
+        /*padding: 2.5rem;
+        display: inline-flex;
+        margin-right: 4em;
+        justify-content: center;*/
+        margin:0.8rem; 
+        display:flex; 
+        align-items: center; 
+        justify-content: space-around; 
+        margin: 2rem"
+    }
 
-    }
-    .pie a{
-        text-decoration: none;
-        color: #902B48;
-        font-size: larger;
-        font-weight: bold;
-    }
-    .pie a:after {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: 1;
-    content: ""
-    }
+    
 </style>
 
 <section class="row_am trusted_section" style="background-color:#F0F4EC">
@@ -70,14 +37,11 @@
     <div class="content_col">
         <div class="linea_recarga">
             <a href="https://recarga.internetparaelbienestar.mx/bienestar">
-                <img src="{% static 'bienestarwebApp/images/bienestar/boton_recarga_linea.png' %}" style="height:35%; width:35%;" alt="muestra">
+                <img src="{% static 'bienestarwebApp/images/bienestar/boton_recarga_linea.png' %}" style="height:75%; width:75%;" alt="muestra">
             </a>
             <a href="https://internetparaelbienestar.mx/">
-                <img src="{% static 'bienestarwebApp/images/bienestar/boton_puntos_recarga.png' %}" style="height:35%; width:35%;" alt="muestra">
+                <img src="{% static 'bienestarwebApp/images/bienestar/boton_puntos_recarga.png' %}" style="height:75%; width:75%;" alt="muestra">
             </a>
-            
-        </div>
-        <div class="punto_recarga">
         </div>
         {% comment %} <div class="linea_recarga">
             <div class="tarjeta">
@@ -103,6 +67,10 @@
                 </div>
             </div>
         </div> {% endcomment %}
+    </div>
+    <br>
+    <div class="puntos_recarga">   
+        <img src="{% static 'bienestarwebApp/images/bienestar/puntos_recargas.png' %}" style="height:30%; width:30%;" alt="puntos de recarga">
     </div>
 </section>
   <!-- Trusted Section ends -->
