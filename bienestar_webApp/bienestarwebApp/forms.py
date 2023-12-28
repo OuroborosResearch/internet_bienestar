@@ -25,7 +25,7 @@ class VentasFormulario(forms.ModelForm):
             'municipio': TextInput(attrs={'placeholder': 'Municipio'}),
             'referencias': Textarea(attrs={'placeholder': 'Referencia del domicilio', 'rows': 5,'cols':50,'style':'height: 300%'}),
             'precio': Select(choices=Venta.PLANES_CHOICES,attrs={'placeholder': 'Elige tu plan'}),
-            'cantidad': NumberInput(attrs={'placeholder': 'Cantidad','max': '10','min':'1'}),
+            'cantidad': NumberInput(attrs={'placeholder': 'Cantidad','max': '10','min':'1','value': '1'}),
             'created_date': HiddenInput(
                 attrs={
                     'required': False,
