@@ -18,6 +18,11 @@
         border-color: var(--main-brand-color);
         border-radius: 25px;
     }
+    .frameMap{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 </style>
 <section class="row_am faq_section" id="faqs">
     <!-- container start -->
@@ -35,15 +40,17 @@
             {% comment %} <a href="https://www.redcompartida.igg.unam.mx/geoportal/home" class="btn white_btn" data-aos="fade-in">Mapa
                 de cobertura</a> {% endcomment %}
 
-            <h2>&nbsp;</h2>
-                <iframe
-                    width="600"
-                    height="450"
-                    style="border:0"
-                    loading="lazy"
-                    allowfullscreen
-                    src="https://altanredes.com/mapas/mapa.html"
-                ></iframe>
+        <h2>&nbsp;</h2>
+        <div class="frameMap">
+            <iframe
+                width="1000"
+                height="600"
+                style="border:0"
+                loading="lazy"
+                allowfullscreen
+                src="https://altanredes.com/mapas/mapa.html"
+            ></iframe>
+        </div>
         </div>
 
     </div>
