@@ -92,6 +92,12 @@ def cobertura(request):
     #return render(request, "bienestarwebApp/HBB/cobertura.html")
     return render(request, "bienestarwebApp/paginas/cobertura.html")
 
+def portabilidad(request):
+    return render(request, "bienestarwebApp/paginas/portabilidad.html")
+
+def compatibilidad(request):
+    return render(request, "bienestarwebApp/paginas/compatibilidad.html")
+
 def paginas(request, page_name):
     pags = get_object_or_404(Paginas, titulo=page_name)
 

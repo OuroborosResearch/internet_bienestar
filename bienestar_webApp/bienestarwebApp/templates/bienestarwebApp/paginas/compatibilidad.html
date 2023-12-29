@@ -1,0 +1,51 @@
+{% extends 'bienestarwebApp/landing/base.html' %}
+{% load static %}
+
+{% block title %}Portabilidad{% endblock title %}
+{% block content %}
+<style>
+    .title img{
+        width: 100%;
+        justify-content: center;
+        align-content: center;
+    }
+    .card-body{
+        -ms-flex: 1 1 auto;
+        flex: 1 1 auto;
+        min-height: 1px;
+        padding: 1.25rem;
+        border: 1px solid;
+        border-color: var(--main-brand-color);
+        border-radius: 25px;
+    }
+    .frameMap{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+</style>
+<section class="row_am faq_section" id="faqs">
+    <!-- container start -->
+    <div class="container-fluid title" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="300">
+        <!-- h2 -->
+        {% comment %} <h2><span></span> {{pags.titulo}}</h2> {% endcomment %}
+        <!-- p -->
+        <img src="{% static 'bienestarwebApp/images/bienestar/title_compatibilidad.png' %}" alt="Seccion Compatibilidad">
+    </div><br><br>
+    <div class="container">
+        <div class="card-body" style="color:gray">
+            <p align="center"><strong>Consulta nuestro mapa de cobertura aquí:</strong></p>
+                
+
+            {% comment %} <a href="https://www.redcompartida.igg.unam.mx/geoportal/home" class="btn white_btn" data-aos="fade-in">Mapa
+                de cobertura</a> {% endcomment %}
+
+        <h2>&nbsp;</h2>
+    
+        </div>
+
+    </div>
+</section>
+
+
+{% endblock content %}
