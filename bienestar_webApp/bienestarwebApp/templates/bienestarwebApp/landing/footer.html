@@ -32,7 +32,7 @@
 {% endif %}
 
 <!-- Footer-Section start -->
-<footer>
+<footer id="miFooter">
     <div class="top_footer" id="contact">
       <!-- animation line -->
       <div class="anim_line dark_bg">
@@ -99,7 +99,7 @@
                       <li><a href="https://tarifas.ift.org.mx/ift_visor/">Buscador de Tarifas IFT</a></li>
                       <li><a href="{% url 'pags' 'codigo_gestion_de_red' %}">Código de gestión de tráfico de la red</a></li>
                       <li><a href="{% url 'pags' 'colaboracion_justicia' %}">Area de colaboración con la justicia</a></li>
-                      <li><a href="#">Formatos simplificados</a></li>
+                      <li><a href="{% url 'pags' 'formatos_simplificados' %}">Formatos simplificados</a></li>
                       {% comment %} <li><a href="#">Términos y Condiciones</a></li> {% endcomment %}
                       {% comment %} <li><a href="{% url 'faqs' %}">FAQs</a></li>
                       <li><a href="{% url 'aviso_privacidad' %}">Avisos de Privacidad</a></li>
