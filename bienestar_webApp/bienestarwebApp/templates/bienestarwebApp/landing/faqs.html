@@ -21,7 +21,7 @@
     <div class="container faq_container">
       <div class="section_title" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="300">
         <!-- h2 -->
-        <h2><span>FAQs</span> - Preguntas frecuentes</h2>
+        <h2><span>Preguntas frecuentes</span></h2>
         <!-- p -->
         <p>Si no encuentras la pregunta que necesitas, contáctanos vía 
           <a class="faqs_links" href="https://api.whatsapp.com/send?text=Oláfff, me gustaría saber más sobre sus servicios!&amp;phone=525561856708">Whatsapp</a>
@@ -56,9 +56,9 @@
         <a href="{% url 'faqs' %}">Ver todas las Preguntas Frecuentes</a>
       </div>
       {% else %}
-      <div class="faqs_contact_card_container">
+      {% comment %} <div class="faqs_contact_card_container">
         {% include "bienestarwebApp/landing/utils/contact_card.html" %}
-      </div>
+      </div> {% endcomment %}
       {% endif %}
     </div>
     <!-- container end -->
