@@ -33,3 +33,6 @@ class VentasFormulario(forms.ModelForm):
                     'hidden': True,
                 })
         }
+
+class ImeiForm(forms.Form):
+    imei = forms.IntegerField()
