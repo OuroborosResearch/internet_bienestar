@@ -358,3 +358,15 @@ def compraChip(request):
 
 def paymentChip(request):
     return render(request,"bienestarwebApp/compraChip/paymentChip.html")
+
+
+def enviar_imei(request):
+    if request.method == 'POST':
+        form = ImeiForm(request.POST)
+        if form.is_valid():
+            imei = form.cleaned_data['imei']
+            return render(request, 'compatibilidad.html', {'form': form, 'imei_enviado': imei})
+    else:
+        form = ImeiForm()
+
+    return render(request, 'compatibilidad.html', {'form': form})

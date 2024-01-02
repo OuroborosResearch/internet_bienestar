@@ -18,10 +18,71 @@
         border-color: var(--main-brand-color);
         border-radius: 25px;
     }
-    .frameMap{
-        display: flex;
-        justify-content: center;
-        align-items: center;
+    .titulo{
+        color: var(--main-brand-color);
+        font-weight: 500;
+        font-size: 35px;
+        word-spacing: 0.5em;
+    }
+    .intenso{
+        color: var(--body-text-purple);
+        font-weight: 500;
+        font-size: 18px;
+        word-spacing: 0.5em;
+    }
+    .subtitulo{
+        color: var(--body-text-purple);
+        font-weight: 400;
+        font-size: 18px;
+        word-spacing: 0.5em;
+    }
+    .compatitulo {
+        font-size: medium;
+        font-weight: bold;
+        font-family: "Montserrat", sans-serif;
+        color: #6c6b6b;
+    }
+    .subImei {
+        color: var(--main-brand-color);
+        font-size: medium;
+        font-weight: bold;
+    }
+    .compatibilidad {
+        width: 75%;
+    }
+    .inputImei {
+        background-color: #ffffff;
+        border-radius: 25px;
+        border: 1px solid var(--main-brand-color);
+        box-shadow: 6px 7px 9px 0 rgba(0, 0, 0, 0.24);
+        -webkit-box-shadow: 6px 7px 9px 0 rgba(0, 0, 0, 0.24);
+        -moz-box-shadow: 6px 7px 9px 0 rgba(0, 0, 0, 0.24);
+    }
+    .contentButton {
+        background-color: #ffffff;
+        font-family: "Montserrat", sans-serif;
+        font-weight: bold;
+        color: var(--main-brand-color);
+        border: 1px solid var(--main-brand-color);
+        border-radius: 25px;
+        margin: auto;
+        padding: 1em;
+        text-align: center;
+    }
+    .image {
+        position: static;
+        background-color: var(--main-brand-color);
+        border-radius: 50px;
+        width: 70px;
+        height: 70px;
+        z-index: 2;
+        margin: auto auto auto -14em;
+        --circle-radius: 35px;
+        gap: 7em;
+        background-image: url("{% static 'bienestarwebApp/images/bienestar/hand.webp' %}");
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+        background-size: 65%;
     }
 </style>
 <section class="row_am faq_section" id="faqs">
@@ -34,12 +95,41 @@
     </div><br><br>
     <div class="container">
         <div class="card-body" style="color:gray">
-            <p align="center"><strong>Consulta nuestro mapa de cobertura aquí:</strong></p>
-                
-
-            {% comment %} <a href="https://www.redcompartida.igg.unam.mx/geoportal/home" class="btn white_btn" data-aos="fade-in">Mapa
-                de cobertura</a> {% endcomment %}
-
+            <p class="titulo" align="center"><strong>COMPATIBILIDAD<strong></p>
+            <p align="center"><strong>Es importante que valides que tu celular es compatible con nuestra red para que puedas disfrutar
+                <br>
+                en su totalidad de los beneficios que te ofrecemos<br>
+                <span class="intenso"><strong>¡Compruébalo aquí!</strong></span>
+                </strong></p>
+            <div class="container" style="display: flex; justify-content: center;">
+                <div class="col-lg-10 col-12 justify-content-center">
+                    <form method="post" action="/compatibilidad" name="formCompatibilidad" id="formcompatibilidad">
+                        <div class="col-8 ml-lg-5 mr-lg-0 px-lg-5 m-auto p-0">
+                            <label class="compatitulo ml-lg-2 mr-lg-0 px-lg-5 m-auto p-0" for="imei">Ingrese el número de <span class="subImei">IMEI</span></label>
+                        </div>
+                        <div class="col-12 text-center">
+                            <input maxlength="16" minlength="12" class="compatibilidad p-2 inputImei" type="text" name="imei" id="imei" placeholder="Ingresa tu código IMEI" required="">
+                        </div>
+                        <div class="col-12 text-center my-3">
+                            <div class="col-10 m-auto" onclick="post()">
+                                <div class="row d-flex">
+                                    <div class="col-12 col-lg-6 contentButton" style="cursor: pointer">
+                                        <p class="m-0 p-0 text-center">Consultar</p>
+                                    </div>
+                                    <div class="image d-none d-lg-flex" style="cursor: pointer">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <p class="compatitulo" align="center">El <span class="subImei">IMEI</span> es el código internacional de identidad que tiene cada teléfono celular y <br>    
+                que lo distingue de manera única.
+            </p>
+            <p class="compatitulo" align="center">Para conocer tu <span class="subImei">IMEI</span>
+                debes marcar <span class="subImei">*#06#</span> en el dispositivo que utilizarás en nuestra red.
+            </p>
         <h2>&nbsp;</h2>
     
         </div>
