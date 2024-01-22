@@ -26,6 +26,8 @@ class Venta(models.Model):
     referencias = models.TextField()
     precio = models.IntegerField(choices=PLANES_CHOICES)
     cantidad = models.IntegerField()
+    aceptar_aviso = models.BooleanField(default=False)
+    aceptar_terminos = models.BooleanField(default=False)
     created_date = models.DateTimeField(
             auto_now_add=True, blank=True, null=True)
 
