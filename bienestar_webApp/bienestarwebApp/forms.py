@@ -1,13 +1,18 @@
 from django import forms
-from django.forms import NumberInput, TextInput, EmailInput, HiddenInput, Textarea, ChoiceField, Select
+from django.forms import NumberInput, TextInput, EmailInput, HiddenInput, Textarea, ChoiceField, Select, CheckboxInput,BooleanField
 from ventas.models import Venta
+from django.db.models import Q
 
 class VentasFormulario(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super(VentasFormulario, self).__init__(*args, **kwargs)
         for field in self.fields:
-            self.fields[field].widget.attrs['class'] = 'form-control'
-            self.fields[field].label = ''
+            if field != 'aceptar_aviso' and field != 'aceptar_terminos':
+                self.fields[field].widget.attrs['class'] = 'form-control'
+                self.fields[field].label = ''
+            else:
+                self.fields[field].widget.attrs['class'] = 'form-check-input'
+
     class Meta:
         model = Venta
         fields ="__all__"
@@ -26,6 +31,8 @@ class VentasFormulario(forms.ModelForm):
             'referencias': Textarea(attrs={'placeholder': 'Referencia del domicilio', 'rows': 5,'cols':50,'style':'height: 300%'}),
             'precio': Select(choices=Venta.PLANES_CHOICES,attrs={'placeholder': 'Elige tu plan'}),
             'cantidad': NumberInput(attrs={'placeholder': 'Cantidad','max': '10','min':'1','value': '1'}),
+            'aceptar_aviso': CheckboxInput(), 
+            'aceptar_terminos':CheckboxInput(attrs={'style':'margin-top: 5px;'}),
             'created_date': HiddenInput(
                 attrs={
                     'required': False,
