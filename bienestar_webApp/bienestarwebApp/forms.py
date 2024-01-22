@@ -11,7 +11,8 @@ class VentasFormulario(forms.ModelForm):
                 self.fields[field].widget.attrs['class'] = 'form-control'
                 self.fields[field].label = ''
             else:
-                self.fields[field].widget.attrs['class'] = 'form-check-input'
+                #self.fields[field].widget.attrs['class'] = 'form-check-input'
+                self.fields[field].widget.attrs['style'] = 'display: flex;'
 
     class Meta:
         model = Venta
@@ -31,7 +32,7 @@ class VentasFormulario(forms.ModelForm):
             'referencias': Textarea(attrs={'placeholder': 'Referencia del domicilio', 'rows': 5,'cols':50,'style':'height: 300%'}),
             'precio': Select(choices=Venta.PLANES_CHOICES,attrs={'placeholder': 'Elige tu plan'}),
             'cantidad': NumberInput(attrs={'placeholder': 'Cantidad','max': '10','min':'1','value': '1'}),
-            'aceptar_aviso': CheckboxInput(), 
+            'aceptar_aviso': CheckboxInput(attrs={'style':'margin-top: 5px;'}), 
             'aceptar_terminos':CheckboxInput(attrs={'style':'margin-top: 5px;'}),
             'created_date': HiddenInput(
                 attrs={
