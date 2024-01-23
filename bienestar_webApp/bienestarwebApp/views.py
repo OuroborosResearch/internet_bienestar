@@ -6,7 +6,7 @@ import datetime
 from .models import Paginas, Faqs, Entradas, Reviews, Planes, Aviso
 from .forms import VentasFormulario
 from web_api.api import get_offerings, check_cobertura, get_preferences, get_profile_data_clean, get_all_mb_plans, get_all_mifi_plans, get_offer_id, get_offer_price, get_users_length, getUserByNumber, send_subscriptions
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 from django.conf import settings
 import json
 import requests
@@ -308,7 +308,8 @@ def compraChip(request):
                 'municipio':form.cleaned_data['municipio'],
                 'referencias':form.cleaned_data['referencias'],
                 'precio':form.cleaned_data['precio'],
-                'cantidad':form.cleaned_data['cantidad']
+                'cantidad':form.cleaned_data['cantidad'],
+                'aceptar_aviso':form.cleaned_data['aceptar_aviso']
             }
             post.save()
 
@@ -335,6 +336,7 @@ def compraChip(request):
                 #"precio": payload["precio"],
                 "precio": payload["precio"] * payload["cantidad"],
                 "cantidad": payload["cantidad"],
+                "aceptar_aviso": payload["aceptar_aviso"],
             }
 
             print("Payload compra SIM", raw)
@@ -346,7 +348,10 @@ def compraChip(request):
                 print("Response compra SIM --->>>>> ", response.json()['purchase_response']['Gateaway_link'])
                 print("SIM solicitada correctamente")
             else:
-                raise Exception("Error al solicitar tu sim")
+                try:                    
+                    raise Exception("Error al solicitar tu sim",response.status_code)
+                except Exception as e:
+                    return HttpResponse(f"Se produjo un error: {str(e)}")
 
             #return HttpResponseRedirect(preference_mo["init_point"])
             return render(request, 'bienestarwebApp/compraChip/mo_iframe.html', {"iframe_url" : response.json()['purchase_response']['Gateaway_link']})
