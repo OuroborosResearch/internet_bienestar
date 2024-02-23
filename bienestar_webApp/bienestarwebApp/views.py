@@ -4,6 +4,7 @@ from django.template import RequestContext
 from django.views.decorators.csrf import csrf_protect
 import datetime
 from .models import Paginas, Faqs, Entradas, Reviews, Planes, Aviso
+from ventas.models import Venta
 from .forms import VentasFormulario
 from web_api.api import get_offerings, check_cobertura, get_preferences, get_profile_data_clean, get_all_mb_plans, get_all_mifi_plans, get_offer_id, get_offer_price, get_users_length, getUserByNumber, send_subscriptions
 from django.http import HttpResponseRedirect, HttpResponse
@@ -313,8 +314,8 @@ def compraChip(request):
             }
             post.save()
 
-            print(f"[Info] Web Mercado pago Init... {payload['nombre']} {payload['email']}")
-            
+            print(f"[Info] Web Pasarela de pago iniciada Init... {payload['nombre']} {payload['email']}")
+            etiqueta_precio = dict(Venta.PLANES_CHOICES).get(payload["precio"])
             if payload["cantidad"] > 1 : precio = base_precio * payload["cantidad"] 
             else: precio = base_precio
 
@@ -336,6 +337,7 @@ def compraChip(request):
                 #"precio": payload["precio"],
                 "precio": payload["precio"] * payload["cantidad"],
                 "cantidad": payload["cantidad"],
+                "producto": etiqueta_precio,
                 "aceptar_aviso": payload["aceptar_aviso"],
             }
 

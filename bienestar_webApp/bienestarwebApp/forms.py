@@ -13,6 +13,8 @@ class VentasFormulario(forms.ModelForm):
             else:
                 #self.fields[field].widget.attrs['class'] = 'form-check-input'
                 self.fields[field].widget.attrs['style'] = 'display: flex;'
+        self.fields['aceptar_aviso'].required = True
+        self.fields['aceptar_terminos'].required = True
 
     class Meta:
         model = Venta
