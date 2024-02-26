@@ -15,18 +15,30 @@
         <img src="{% static 'bienestarwebApp/images/banner_1.png' %}" alt="Imagen de intro" style="width:792px; height:135px; ">
       </div>
       <br><br>
-      <div class="promo_plans" style="margin:0% 10%; display:flex; justify-content:space-around; align-items: center;">
+      <style>
+        @media (max-width: 600px) {
+          .promo_plans {
+            flex-direction: column; /* Cambia la dirección de flexión a vertical */
+            align-items: center; /* Centra los elementos en el eje transversal */
+          }
+
+          .promo_plans img {
+            max-width: 100%; /* Ocupa todo el ancho del contenedor */
+          }
+        }
+      </style>
+      <div class="promo_plans" style="margin:0% 10%; display:flex; justify-content:space-around; align-items: center; max-width: 100%;">
         <a href="{% url 'compra_tu_chip_ib' %}" alt="compra tu chip" style="display: contents;">
-          <img src="{% static 'bienestarwebApp/images/planes/ib_plan1530.png' %}" alt="Promo plan 15 dias" style="width:30%; height:30%;">
+          <img src="{% static 'bienestarwebApp/images/planes/ib_plan100porta.png' %}" alt="Promo plan 15 dias" style="width:45%; height:45%; max-width: 45%; height: auto;">
         </a>
         <a href="{% url 'compra_tu_chip_ib' %}" alt="compra tu chip" style="display: contents;">
-          <img src="{% static 'bienestarwebApp/images/planes/ib_plan200promo.png' %}" alt="Promo paquete 200" style="width:33%; height:33%;">
+          <img src="{% static 'bienestarwebApp/images/planes/ib_plan200promo.png' %}" alt="Promo paquete 200" style="width:45%; height:45%; max-width: 45%; height: auto;">
         </a>
       </div>
       <div class="img_intro_1" style="text-align: center; margin:2.5rem 1.5rem 1.5rem 1.5rem;">
         {% comment %} <a href="https://jrmovil.pythonanywhere.com/recargas" alt="compra tu chip"> {% endcomment %}
         <a href="{% url 'compra_tu_chip_ib' %}" alt="compra tu chip">
-          <img src="{% static 'bienestarwebApp/images/planes/compra_chip.png' %}" alt="compra tu chip" style="width:30%; height:30%; ">
+          <img src="{% static 'bienestarwebApp/images/planes/compra_chip.png' %}" alt="compra tu chip" style="width:45%; height:45%; ">
         </a>
       </div>
       <br><br>
