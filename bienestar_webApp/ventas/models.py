@@ -7,10 +7,11 @@ class Venta(models.Model):
     PLANES_CHOICES = (
         (100, 'Obten tu Chip'),
         (50, 'Paquete 50'),
-        (65, 'Paquete 65'),
+        (60, 'Paquete 60'),
+        (99, 'Paquete 99'),
         (100, 'Paquete 100'),
-        (125, 'Paquete 125'),
-        (200, 'Paquete 200'),
+        (120, 'Paquete 120'),
+        (230, 'Paquete 230'),
     )
     nombre = models.CharField(max_length=200)
     apellido = models.CharField(max_length=200)
