@@ -11,6 +11,7 @@ class Venta(models.Model):
         (99, 'Paquete 99'),
         (100, 'Paquete 100'),
         (120, 'Paquete 120'),
+        (200, 'Paquete 200'),
         (230, 'Paquete 230'),
     )
     nombre = models.CharField(max_length=200)
