@@ -318,7 +318,7 @@ def compraChip(request):
             etiqueta_precio = dict(Venta.PLANES_CHOICES).get(payload["precio"])
             if payload["cantidad"] > 1 : precio = base_precio * payload["cantidad"] 
             else: precio = base_precio
-
+            
             precio += shipment
             print(f"[Info] precio variable... ", precio)
             raw = {
@@ -335,7 +335,7 @@ def compraChip(request):
                 "municipio": payload["municipio"],
                 "refDomicilio": payload["referencias"],
                 #"precio": payload["precio"],
-                "precio": payload["precio"] * payload["cantidad"],
+                "precio": payload["precio"],
                 "cantidad": payload["cantidad"],
                 "producto": etiqueta_precio,
                 "aceptar_aviso": payload["aceptar_aviso"],
