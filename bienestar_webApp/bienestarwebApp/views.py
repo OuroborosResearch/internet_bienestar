@@ -319,9 +319,9 @@ def compraChip(request):
             if payload["cantidad"] > 1 : precio = base_precio * payload["cantidad"] 
             else: precio = base_precio
             
-            if len(payload["numInt"]) == 0 or payload["numInt"] == None:
-                numInt = "n/a"
-            else: numInt = payload["numInt"]
+            if payload["numInt"]:
+                numInt = payload["numInt"]
+            else: numInt = "n/a"
             
             precio += shipment
             print(f"[Info] precio variable... ", precio)
