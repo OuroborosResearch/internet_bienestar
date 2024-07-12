@@ -1,0 +1,176 @@
+{% extends 'bienestarwebApp/landing/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<style>
+  .contact_form {
+    width: 100%!important;
+  }
+  .contact_section_b {
+    padding: 10%;
+  }
+  .contact_txt_footer {
+    font-size: 12px;
+    padding: 1% 5% 0;
+  }
+  .contact_form_title {
+    font-size: 2rem;
+    margin: 2% 20% 5%;
+    text-align: center;
+  }
+  .full_bg_chip {
+    background-size: cover;
+    background: var(--main-brand-color);
+    width: 100%;
+    /* height: 100vh; */
+    overflow-y: auto;
+    padding-bottom: 50px;
+    }
+    .notice {
+        font-size: 14px;
+        color: #555;
+        margin-top: 20px;
+    }
+</style>
+
+    <div onload="startLoad" class="full_bg_chip">
+
+      <div class="container">
+         <section class="signup_section">
+
+        <div class="top_part">
+            <a href="https://www.internetbienestar.com.mx/" class="back_btn"><i class="icofont-arrow-left"></i> Regresar</a>
+        </div>
+  
+          <!-- Comment Form Section -->
+          <div class="signup_form row contact_form">
+            <div class="contact_form_title">
+              <h2>Selecciona tu oferta preferida y ¡adquiere tu Chip! </h2>
+            </div>
+
+            <div class="section_title col-md-5">
+              <div class="contact_section_b">
+                    <h3>Selecciona uno de nuestros paquetes:</h3> <br><br>
+                    {% for offer in offers  %}
+                        {% if not offer.envio_gratuito %}
+                            <p align = "justify">
+                                <strong>{{offer.nombre}}:</strong>{{offer.descripcion}}<br>    
+                            </p>
+                        {% endif %}
+                    {% endfor %}
+                    <p class="notice">*Todos estos paquetes NO INCLUYEN costo de envio.</p>
+                </div>
+            </div>
+            <div class="col-md-6"><div class="contact_section_b">
+                <h3>Paquetes con envio gratuito:</h3><br><br>
+                {% for offer in offers%}
+                    {% if offer.envio_gratuito %}
+                            <p align = "justify">
+                                <strong>{{offer.nombre}}</strong><br>    
+                            </p>
+                        {% endif %}
+                {% endfor %}
+                <p class="notice">*Todos estos paquetes INCLUYEN costo de envio.</p>
+            </div>
+                <form method="post" action="{% url 'compra_tu_chip_ib' %}" onchange="checkCategory()" onsubmit="return validateForm()">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="category">Chips y Paquetes:</label>
+                        <select name="ofertas" id="category" class="form-control">
+                            <option value="" disabled selected>Selecciona una oferta</option>
+                            {% for category in offers %}
+                                <option value="{{ category.precio }}|{{category.mp_link}}">{{ category.nombre }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="form-group" id="additionalField" style="display: none;">
+                        <label for="additionalNumber">Cantidad:</label>
+                        <input type="number" name="cantidad" id="additionalNumber" class="form-control" value="1">
+                    </div>
+                    <div class="form-group" id="getTotalContainer" style="display: none;">
+                       <p><strong>TOTAL : </strong><span id="getTotal"></span></p>
+                    </div>
+                    <div class="form-group form-check">
+                        <input type="checkbox" class="form-check-input" id="terminos" name="terminos">
+                        <label class="form-check-label" for="terminos">Acepto los términos y condiciones</label>
+                    </div>
+                    <div class="form-group form-check">
+                        <input type="checkbox" class="form-check-input" id="politicas" name="politicas">
+                        <label class="form-check-label" for="politicas">Acepto la política de privacidad</label>
+                    </div>
+                    <input  type="hidden" class="form-check-input" id="envioGratis" name="envioGratis">
+                    <button type="submit" class="btn btn-primary">Enviar</button>
+                </form>
+            </div>
+          </div>
+         </section>
+      </div>
+      
+    </div>
+
+    <!-- Incluir Bootstrap JS y dependencias -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- JavaScript para mostrar/ocultar campo adicional -->
+    <script>
+        function checkCategory() {
+            const selectedCategory = document.getElementById('category').value;
+            const additionalField = document.getElementById('additionalField');
+            const getTotalContainer = document.getElementById('getTotalContainer');
+            const getTotal = document.getElementById('getTotal');
+            const additionalNumber = document.getElementById('additionalNumber').value;
+            const envioGratis = document.getElementById('envioGratis');
+
+            if (selectedCategory || selectedCategory !== NaN)  {
+
+                let addCant = parseInt(selectedCategory);
+                if (additionalNumber > 1 && parseInt(selectedCategory) < 230) {
+                    addCant *= additionalNumber;
+                }
+
+                getTotal.innerHTML = addCant;
+                getTotalContainer.style.display = 'block';
+            } else {
+                getTotalContainer.style.display = 'none';
+                addCant = 1
+            }
+
+            if (parseInt(selectedCategory) < 230) {
+                additionalField.style.display = 'block';
+                envioGratis.value = "false";
+            } else {
+                additionalField.style.display = 'none';
+                envioGratis.value = "true";
+            }
+        }
+
+        document.getElementById('additionalNumber').addEventListener('input', function() {
+
+            checkCategory();
+
+        });
+
+        function validateForm() {
+            const terminos = document.getElementById('terminos');
+            const politicas = document.getElementById('politicas');
+            const selectedCategory = document.getElementById('category').value;
+
+            if (!selectedCategory || selectedCategory === NaN ) {
+                alert('Debe seleccionar una oferta.');
+                return false;
+            }
+
+            if (!terminos.checked || !politicas.checked) {
+                alert('Debe aceptar los términos y condiciones y la política de privacidad para continuar.');
+                return false;
+            }
+            return true;
+        }
+    </script>
+
+    
+
+{% endblock content %}

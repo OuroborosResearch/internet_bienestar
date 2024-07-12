@@ -4,8 +4,8 @@ from django.template import RequestContext
 from django.views.decorators.csrf import csrf_protect
 import datetime
 from .models import Paginas, Faqs, Entradas, Reviews, Planes, Aviso
-from ventas.models import Venta
-from .forms import VentasFormulario
+from ventas.models import Venta, ChipOffers
+from .forms import VentasFormulario, OfertasFormulario
 from web_api.api import get_offerings, check_cobertura, get_preferences, get_profile_data_clean, get_all_mb_plans, get_all_mifi_plans, get_offer_id, get_offer_price, get_users_length, getUserByNumber, send_subscriptions
 from django.http import HttpResponseRedirect, HttpResponse
 from django.conf import settings
@@ -288,10 +288,33 @@ def hbb_result_ok(request):
 def redireccion_recarga(request):
     return redirect('https://jrmovil.pythonanywhere.com/recargas')
 
+def compra_chip_oferta(request):
+    
+    form = OfertasFormulario()
+    offers = ChipOffers.objects.all()
+        
+    return render(request, "bienestarwebApp/compraChip/compraChipOffer.html", {'form': form, 'offers':offers})
+
 def compraChip(request):
     base_precio = 100
     shipment = 30
     if request.method == "POST":
+                
+        print(request.POST)
+        precio, mp_url = request.POST.get('ofertas').split('|')
+        envioGratis = request.POST.get('envioGratis')
+        cantidad = request.POST.get('cantidad')
+        terminos = request.POST.get('terminos')
+        politicas = request.POST.get('politicas')
+        
+        
+        if 'on' not in terminos and 'on' not in politicas:
+            return HttpResponse(f"Acceso no autorizado.")
+ 
+        
+        if (mp_url and len(mp_url) > 0 and 'true' in envioGratis ):
+            return render(request, 'bienestarwebApp/compraChip/mo_iframe.html', {"iframe_url" : mp_url})
+        
         form = VentasFormulario(request.POST)
         if form.is_valid():
             post = form.save(commit=False)
@@ -308,8 +331,8 @@ def compraChip(request):
                 'estado':form.cleaned_data['estado'],
                 'municipio':form.cleaned_data['municipio'],
                 'referencias':form.cleaned_data['referencias'],
-                'precio':form.cleaned_data['precio'],
-                'cantidad':form.cleaned_data['cantidad'],
+                'precio':precio,
+                'cantidad':cantidad,
                 'aceptar_aviso':form.cleaned_data['aceptar_aviso']
             }
             post.save()

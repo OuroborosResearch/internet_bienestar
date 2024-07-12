@@ -3,6 +3,24 @@ from django.db import models
 from django.utils import timezone
 
 
+class ChipOffers(models.Model):
+    
+    nombre = models.CharField(max_length=200)
+    descripcion = models.TextField(verbose_name="Descripción", null=True, blank=True)
+    mp_link = models.CharField(max_length=900, null=True, blank=True)
+    precio = models.IntegerField(verbose_name="Precio")
+    envio_gratuito = models.BooleanField()
+    created_date = models.DateTimeField(
+            auto_now_add=True, blank=True, null=True)
+    
+    class Meta:
+        verbose_name = 'Oferta chip'
+        verbose_name_plural = 'Ofertas Chip'
+        # Ordenar de más nuevos a más viejo
+
+    def __str__(self):
+        return str(self.nombre)
+
 class Venta(models.Model):
     PLANES_CHOICES = (
         (100, 'Obten tu Chip'),
