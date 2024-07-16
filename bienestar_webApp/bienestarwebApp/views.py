@@ -299,29 +299,45 @@ def compraChip(request):
     base_precio = 100
     shipment = 30
     if request.method == "POST":
-                
+        print("if post")
         print(request.POST)
-        precio, mp_url = request.POST.get('ofertas').split('|')
+        paqueteInfo = request.POST.get('ofertas')
+        paquete, precio, mp_url = paqueteInfo.split('|')
         envioGratis = request.POST.get('envioGratis')
         cantidad = request.POST.get('cantidad')
         terminos = request.POST.get('terminos')
         politicas = request.POST.get('politicas')
+        nombre = request.POST.get('nombre')
+        email = request.POST.get('email')
         
         
         if 'on' not in terminos and 'on' not in politicas:
             return HttpResponse(f"Acceso no autorizado.")
  
-        
+        """
         if (mp_url and len(mp_url) > 0 and 'true' in envioGratis ):
-            return render(request, 'bienestarwebApp/compraChip/mo_iframe.html', {"iframe_url" : mp_url})
+            # salvar registro
+            venta = Venta(
+                nombre=nombre,
+                email=email,
+                precio=precio,
+                paquete=paquete
+            )
+            venta.save()
+            paquetes_flag = True
+            
+            #return render(request, 'bienestarwebApp/compraChip/mo_iframe.html', {"iframe_url" : mp_url}) """
         
         form = VentasFormulario(request.POST)
+        print('chips' not in paquete)
+        print()
         if form.is_valid():
+            print("entrando sin flag!!!")
             post = form.save(commit=False)
             payload = {
-                'nombre':form.cleaned_data['nombre'],
+                'nombre':nombre,
                 'apellido':form.cleaned_data['apellido'],
-                'email':form.cleaned_data['email'],
+                'email':email,
                 'celular':form.cleaned_data['celular'],
                 'calle':form.cleaned_data['calle'],
                 'numExt':form.cleaned_data['no_ext'],
@@ -338,19 +354,22 @@ def compraChip(request):
             post.save()
 
             print(f"[Info] Web Pasarela de pago iniciada Init... {payload['nombre']} {payload['email']}")
-            etiqueta_precio = dict(Venta.PLANES_CHOICES).get(payload["precio"])
-            if payload["cantidad"] > 1 : precio = base_precio * payload["cantidad"] 
-            else: precio = base_precio
+            etiqueta_precio = paquete
+            
+            
+            precio = int(base_precio)
+            print("*******************************************************")
             
             if payload["numInt"]:
                 numInt = payload["numInt"]
             else: numInt = "n/a"
             
-            precio += shipment
-            print(f"[Info] precio variable... ", precio)
+            precio += int(shipment)
+            print(f"[Info] precio shipment... ", precio)
+            
             raw = {
                 "nombre": payload["nombre"],
-                "apellido": payload["apellido"],
+                "apellido": "n/a",
                 "email": payload["email"],
                 "celular": payload["celular"],
                 "calle": payload["calle"],
@@ -365,7 +384,7 @@ def compraChip(request):
                 "precio": payload["precio"],
                 "cantidad": payload["cantidad"],
                 "producto": etiqueta_precio,
-                "aceptar_aviso": payload["aceptar_aviso"],
+                "aceptar_aviso": "true",
             }
 
             print("Payload compra SIM", raw)
@@ -386,9 +405,52 @@ def compraChip(request):
             return render(request, 'bienestarwebApp/compraChip/mo_iframe.html', {"iframe_url" : response.json()['purchase_response']['Gateaway_link']})
 
             #return redirect('pago')
+        elif (mp_url and len(mp_url) > 0 and 'true' in envioGratis ):
+            print("entrando con flad!!!!")
+            print(f"[Info] precio variable... ", precio)
+            raw = {
+                "nombre": nombre,
+                "apellido": "n/a",
+                "email": email,
+                "celular": 000000000,
+                "calle": "n/a",
+                "numExt": "n/a",
+                "numInt": "n/a",
+                "colonia": "n/a",
+                "cpostal": "n/a",
+                "estado": "n/a",
+                "municipio": "n/a",
+                "refDomicilio": "n/a",
+                "precio": precio,
+                "cantidad": cantidad,
+                "producto": paquete,
+                "aceptar_aviso": "true",
+            }
+
+            print("Payload compra SIM", raw)
+           
+            url = "https://jrmovil.pythonanywhere.com/IBienestar-services/2.0/api/sim-purchase/"
+            response = requests.post(url, data=raw)
+            print("Payload response SIM", response.text)
+            if response.status_code == 201:
+                print("Response compra SIM 2222 --->>>>> ", response.json()['purchase_response']['Gateaway_link'])
+                print("SIM solicitada correctamente")
+                return render(request, 'bienestarwebApp/compraChip/mo_iframe.html', {"iframe_url" : mp_url})
+            else:
+                try:                    
+                    raise Exception("Error al solicitar tu sim",response.status_code)
+                except Exception as e:
+                    return HttpResponse(f"Se produjo un error: {str(e)}")
+                
+            
+                
     else:
+        print("if not post")
         form = VentasFormulario()
-    return render(request, "bienestarwebApp/compraChip/compraChipForm.html", {'form': form})
+        
+    print(paquete)
+    print("pero termina aquí cierto?")
+    return render(request, "bienestarwebApp/compraChip/compraChipForm.html", {'form': form, 'ofertas':paqueteInfo, 'politicas':politicas, 'terminos':terminos})
 
 def paymentChip(request):
     return render(request,"bienestarwebApp/compraChip/paymentChip.html")

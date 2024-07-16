@@ -9,8 +9,10 @@ class VentasFormulario(forms.ModelForm):
         model = Venta
         fields ="__all__"
         widgets = {
-            'nombre': TextInput(attrs={'placeholder': 'Nombre', 'class' : 'form-group'}),
-            'apellido': TextInput(attrs={'placeholder': 'Apellido', 'class': 'form-control'}),
+            'nombre': TextInput(attrs={'placeholder': 'Nombre', 'class' : 'form-group', 'readonly': True}),
+            'apellido': HiddenInput(attrs={'required': False,
+                    'readonly': True,
+                    'hidden': True}),
             'email': TextInput(attrs={'placeholder': 'Correo Electronico', 'class': 'form-control'}),
             'celular': NumberInput(attrs={'placeholder': 'Telefono Celular', 'class': 'form-control'}),
             'calle': TextInput(attrs={'placeholder': 'Calle', 'class': 'form-control'}),
@@ -38,16 +40,21 @@ class VentasFormulario(forms.ModelForm):
                     'required': False,
                     'readonly': True,
                     'hidden': True,
-                })
+                }),
+            'paquete': HiddenInput(attrs={'required': False,
+                    'readonly': True,
+                    'hidden': True}),
         }
         
 class OfertasFormulario(forms.ModelForm):
 
     class Meta:
         model = Venta
-        fields =('precio', "aceptar_aviso", 'aceptar_terminos')
+        fields =('precio', 'nombre', 'email', 'aceptar_aviso', 'aceptar_terminos')
         widgets = {
             'precio': Select(choices=Venta.PLANES_CHOICES,attrs={'placeholder': 'Elige tu plan'}),
+            'nombre': TextInput(attrs={'placeholder': 'Nombre completo', 'class': 'form-control'}),
+            'email': EmailInput(attrs={'placeholder': 'Correo Electronico', 'class': 'form-control'}),
             'aceptar_aviso': CheckboxInput(attrs={'style':'margin-top: 5px;'}), 
             'aceptar_terminos':CheckboxInput(attrs={'style':'margin-top: 5px;'}),
         }

@@ -33,9 +33,9 @@ class Venta(models.Model):
         (230, 'Paquete 230'),
     )
     nombre = models.CharField(max_length=200)
-    apellido = models.CharField(max_length=200)
+    apellido = models.CharField(max_length=200, blank=True, null=True)
     email = models.EmailField()
-    celular = models.IntegerField()
+    celular = models.IntegerField(default=0)
     calle = models.CharField(max_length=50)
     no_ext = models.CharField(max_length=50)
     no_int = models.CharField(max_length=10,blank=True, null=True)
@@ -43,13 +43,15 @@ class Venta(models.Model):
     codigo_postal = models.CharField(max_length=10)
     estado = models.CharField(max_length=50)
     municipio = models.CharField(max_length=50)
-    referencias = models.TextField()
-    precio = models.IntegerField(choices=PLANES_CHOICES)
-    cantidad = models.IntegerField()
-    aceptar_aviso = models.BooleanField(default=False)
-    aceptar_terminos = models.BooleanField(default=False)
+    referencias = models.TextField(blank=True, null=True)
+    precio = models.IntegerField(choices=PLANES_CHOICES, blank=True, null=True)
+    cantidad = models.IntegerField(default=1)
+    municipio = models.CharField(max_length=50)
+    aceptar_aviso = models.BooleanField(default=False, blank=True, null=True)
+    aceptar_terminos = models.BooleanField(default=False, blank=True, null=True)
     created_date = models.DateTimeField(
             auto_now_add=True, blank=True, null=True)
+    paquete = models.CharField(max_length=500, blank=True, null=True)
 
     class Meta:
         verbose_name = 'Venta'
