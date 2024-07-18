@@ -401,7 +401,7 @@ def compraChip(request):
             return render(request, 'bienestarwebApp/compraChip/mo_iframe.html', {"iframe_url" : response.json()['purchase_response']['Gateaway_link']})
 
             #return redirect('pago')
-        elif (mp_url and len(mp_url) > 0 and 'true' in envioGratis ):
+        elif (mp_url and len(mp_url) > 0 ):
             print(f"[Info] precio variable... ")
             raw = {
                 "nombre": nombre,
