@@ -329,10 +329,7 @@ def compraChip(request):
             #return render(request, 'bienestarwebApp/compraChip/mo_iframe.html', {"iframe_url" : mp_url}) """
         
         form = VentasFormulario(request.POST)
-        print('chips' not in paquete)
-        print()
         if form.is_valid():
-            print("entrando sin flag!!!")
             post = form.save(commit=False)
             payload = {
                 'nombre':nombre,
@@ -358,7 +355,6 @@ def compraChip(request):
             
             
             precio = int(base_precio)
-            print("*******************************************************")
             
             if payload["numInt"]:
                 numInt = payload["numInt"]
@@ -387,13 +383,13 @@ def compraChip(request):
                 "aceptar_aviso": "true",
             }
 
-            print("Payload compra SIM", raw)
+            print("Payload compra SIM")
            
             url = "https://jrmovil.pythonanywhere.com/IBienestar-services/2.0/api/sim-purchase/"
             response = requests.post(url, data=raw)
             
             if response.status_code == 201:
-                print("Response compra SIM --->>>>> ", response.json()['purchase_response']['Gateaway_link'])
+                #print("Response compra SIM --->>>>> ", response.json()['purchase_response']['Gateaway_link'])
                 print("SIM solicitada correctamente")
             else:
                 try:                    
@@ -406,8 +402,7 @@ def compraChip(request):
 
             #return redirect('pago')
         elif (mp_url and len(mp_url) > 0 and 'true' in envioGratis ):
-            print("entrando con flad!!!!")
-            print(f"[Info] precio variable... ", precio)
+            print(f"[Info] precio variable... ")
             raw = {
                 "nombre": nombre,
                 "apellido": "n/a",
@@ -427,13 +422,13 @@ def compraChip(request):
                 "aceptar_aviso": "true",
             }
 
-            print("Payload compra SIM", raw)
+            print("Payload compra SIM")
            
             url = "https://jrmovil.pythonanywhere.com/IBienestar-services/2.0/api/sim-purchase/"
             response = requests.post(url, data=raw)
             print("Payload response SIM", response.text)
             if response.status_code == 201:
-                print("Response compra SIM 2222 --->>>>> ", response.json()['purchase_response']['Gateaway_link'])
+                #print("Response compra SIM 2222 --->>>>> ", response.json()['purchase_response']['Gateaway_link'])
                 print("SIM solicitada correctamente")
                 return render(request, 'bienestarwebApp/compraChip/mo_iframe.html', {"iframe_url" : mp_url})
             else:

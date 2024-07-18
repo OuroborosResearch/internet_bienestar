@@ -101,11 +101,11 @@
                     </div>
                     <div class="form-group form-check">
                         <input type="checkbox" class="form-check-input" id="terminos" name="terminos">
-                        <label class="form-check-label" for="terminos">Acepto los términos y condiciones</label>
+                        <label class="form-check-label" for="terminos">Acepto los <a style="color:#9f2241;" href="{% url 'pags' 'aviso_privacidad' %}">Avisos de Privacidad</a></label>
                     </div>
                     <div class="form-group form-check">
                         <input type="checkbox" class="form-check-input" id="politicas" name="politicas">
-                        <label class="form-check-label" for="politicas">Acepto la política de privacidad</label>
+                        <label class="form-check-label" for="politicas">Acepto la <a style="color:#9f2241;" href="{% url 'pags' 'terminos_condiciones' %}">Términos y condiciones</a></label>
                     </div>
                     <input  type="hidden" class="form-check-input" id="envioGratis" name="envioGratis">
                     <button type="submit" class="btn btn-primary">Enviar</button>
