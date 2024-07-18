@@ -135,7 +135,7 @@
             if (selectedCategory || selectedCategory !== NaN)  {
 
                 let addCant = parseInt(categoryPrice);
-                if (additionalNumber > 1 && parseInt(categoryPrice) < 230) {
+                if (additionalNumber > 1 && parseInt(categoryPrice) < 230 ) {
                     addCant *= additionalNumber;
                 }
 
@@ -146,7 +146,7 @@
                 addCant = 1
             }
 
-            if (parseInt(categoryPrice) < 230) {
+            if (parseInt(categoryPrice) > 23000000000) {
                 additionalField.style.display = 'block';
                 envioGratis.value = "false";
             } else {
