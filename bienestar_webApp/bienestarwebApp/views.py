@@ -309,6 +309,7 @@ def compraChip(request):
         politicas = request.POST.get('politicas')
         nombre = request.POST.get('nombre')
         email = request.POST.get('email')
+        celNumber = request.POST.get('celNumber')
         
         
         if 'on' not in terminos and 'on' not in politicas:
@@ -407,7 +408,7 @@ def compraChip(request):
                 "nombre": nombre,
                 "apellido": "n/a",
                 "email": email,
-                "celular": 000000000,
+                "celular": celNumber,
                 "calle": "n/a",
                 "numExt": "n/a",
                 "numInt": "n/a",

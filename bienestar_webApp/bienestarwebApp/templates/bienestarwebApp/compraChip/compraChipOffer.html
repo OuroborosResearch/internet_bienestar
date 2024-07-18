@@ -96,6 +96,10 @@
                         <label for="nombreCompleto">Nombre Completo:</label>
                         <input type="name" name="nombre" id="nombreCompleto" class="form-control" value="">
                     </div>
+                    <div class="form-group" id="numberContainer" >
+                        <label for="emailInput">Celular (10 dígitos):</label>
+                        <input type="number" name="celNumber" id="celNumber" class="form-control" value="">
+                    </div>
                     <div class="form-group" id="emailContainer" >
                         <label for="emailInput">Email:</label>
                         <input type="email" name="email" id="emailInput" class="form-control" value="">
@@ -167,6 +171,7 @@
             const selectedCategory = document.getElementById('category').value;
             const emailInput = document.getElementById('emailInput').value;
             const nombreCompleto = document.getElementById('nombreCompleto').value;
+            const celNumber = document.getElementById('celNumber').value;
 
             if (!selectedCategory || selectedCategory === NaN ) {
                 alert('Debe seleccionar una oferta.');
@@ -175,6 +180,12 @@
 
             if (!nombreCompleto || nombreCompleto.length < 1) {
                 alert('Favor de introducir su nombre completo.');
+                return false;
+            }
+
+            console.log("celular : ", celNumber.length !== 10)
+            if (celNumber && celNumber.length !== 10 ) {
+                alert('Favor de introducir un número celular válido.');
                 return false;
             }
 
