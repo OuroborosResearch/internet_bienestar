@@ -55,8 +55,9 @@
                     {% for offer in offers  %}
                         {% if not offer.envio_gratuito %}
                             <p align = "justify">
-                                <strong>{{offer.nombre}}:</strong>{{offer.descripcion}}<br>    
+                                <strong>{{offer.nombre}}</strong>  
                             </p>
+                            <p style="text-align: justify;">{{offer.descripcion}}</p><br>
                         {% endif %}
                     {% endfor %}
                     <p class="notice">*Todos estos paquetes NO INCLUYEN costo de envio.</p>
